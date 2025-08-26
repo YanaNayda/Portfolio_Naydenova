@@ -1,20 +1,25 @@
 import { useState, useEffect } from "react";
 import { cn } from "../lib/utils";
-import { Menu, X ,Languages} from "lucide-react";
+import { Menu, X ,Languages, GraduationCap} from "lucide-react";
+import React from "react";
+
+
+
 const navItems = [
-    {name:"Home" ,href: "/hero"},
-    {name:"About" ,href: "/about"},
-    {name:"Skills" ,href: "/skills"},
-    {name:"Projects" ,href: "/projects"},
-    {name:"Contact" ,href: "/contact"}
+    {name:"Home" ,href: "#hero"},
+    {name:"About" ,href: "#about"},
+    {name:"Skills" ,href: "#skills"},
+    {name:"Projects" ,href: "#projects"},
+    {name:"Education" ,href: "#education"},
+    {name:"Contact" ,href: "#contact"}
 ]
 
 const languages = [
-    {name:"EN" ,href: "/en"},
-    {name:"RU" ,href: "/ru"},
-    {name:"UK" ,href: "/uk"},
-    {name:"HE" ,href: "/he"},
-    {name:"DE" ,href: "/de"},
+    {name:"EN" ,href: "#en"},
+    {name:"RU" ,href: "#ru"},
+    {name:"UK" ,href: "#uk"},
+    {name:"HE" ,href: "#he"},
+   
 ]
 
 export const Navbar = () =>{
