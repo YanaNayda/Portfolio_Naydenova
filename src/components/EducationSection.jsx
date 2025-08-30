@@ -5,24 +5,24 @@ import {GraduationCap ,School,  BookOpen } from "lucide-react"
 const education = [
     {
         id: 1,
-        title: "Graduation1",
-        location: "University of XYZ",
-        description: "This is a brief description of Project One.",
-        date: "2019 - 2023",
+        title: "Master's degree in Computer Science",
+        location: "Holon Institute of Technology",
+        description: "Enrolled in a master's program to deepen knowledge in computer science and explore research opportunities.",
+        date: "2025 - 2027",
         buttonText: "Details",
         demoUrl: "#",
         icon: GraduationCap,
-        color:"bg-blue-500"
+         color:"text-gray-800" 
     },{
         id: 2,
-        title: "Graduation2",
-        location: "University of XYZ",
-        description: "This is a brief description of Project One.",
-        date: "2019 - 2023",
+        title: "Bachelor's degree in Computer Science",
+        location: "Holon Institute of Technology",
+        description: "Learned core software development principles and collaborated on real-world projects during the final year.",
+        date: "2022 - 2025",
         buttonText: "Details",
         demoUrl: "#",
-        icon: School,
-        color:"bg-blue-500"
+        icon: GraduationCap,
+        color:"text-gray-800" 
     },{
         id: 3,
         title: "Graduation3",
@@ -31,8 +31,8 @@ const education = [
         date: "2019 - 2023",
         buttonText: "Details",
         demoUrl: "#",
-        icon: BookOpen,
-        color:"bg-blue-500"
+        icon: "school",
+        color:"text-gray-800" 
     }
 ]
 export const EducationSection = () => {
@@ -43,7 +43,7 @@ export const EducationSection = () => {
           My <span className="text-primary"> Education </span>
         </h2>
       </div>
-      <div className="container mx-auto max-w-5xl">
+      <div className="container mx-auto max-w-5xl py-8  text-center">
         <Timeline defaultColor="bg-blue-500" education={education} />
       </div>
     </section>
