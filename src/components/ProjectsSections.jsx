@@ -5,30 +5,30 @@ import React from "react";
 const projects = [
     {
         id: 1,
-        name: "Project One",
-        description: "This is a brief description of Project One.",
+        name: "DMT - Proms ++ App",
+        description: "The DMT - Proms ++ App is a customizable and flexible platform designed to support various medical use cases.",
         imageUrl: "public/projects/medical_project.jpg",
-        tags: ["React", "JavaScript"],
+        tags: ["Kotlin", "Android Studio","Compose Multiplatform", "GitHub"],
         demoUrl: "#",
-        githubUrl: "https://github.com/YanaNayda"
+        githubUrl: "https://github.com/YanaNayda/DMT---Proms-"
     },
     {
         id: 2,
-        name: "Project Two",
-        description: "This is a brief description of Project Two.",
-        imageUrl: "#",
-        tags: ["Node.js", "Express"],
+        name: "PawPal",
+        description: "A social network for pet lovers to connect, share, and shop.",
+        imageUrl: "public/projects/pawpal.jpg",
+        tags: ["Node.js", "Express", "MongoDB", "React Native", "FireBase", "GitHub"],
         demoUrl: "#",
-        githubUrl: "#"
+        githubUrl: "https://github.com/YanaNayda/PawPal-client"
     },
     {
         id: 3,
-        name: "Project Three",
-        description: "This is a brief description of Project Three.",
-        imageUrl: "#",
-        tags: ["Python", "Django"],
+        name: "GymBro",
+        description:  "A workout planner app that provides personalized training programs based on fitness level and available equipment.",
+        imageUrl: "public/projects/gymbro2.jpg",
+        tags: ["Java", "Android Studio", "Firebase ", "GitHub"],
         demoUrl: "#",
-        githubUrl: "#"
+        githubUrl: "https://github.com/YanaNayda/GymBro"
     },
 
 ]

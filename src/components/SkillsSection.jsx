@@ -1,18 +1,39 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
-const skills =[
-    {name: "HTML", level: 95, category: "Programming Language"},
-    {name: "CSS", level: 90, category: "Programming Language"},
-    {name: "JavaScript", level:   85, category: "Programming Language"},
-    {name: "React", level:  80, category: "Framework"},
-    {name: "Node.js", level: 75, category: "Framework"},
-    {name: "Python", level:  70, category: "Programming Language"},
-    {name: "MongoDB", level: 65, category: "Database"},
-    {name: "Git", level: 60 ,category: "Tools"},
-    {name: "Figma", level: 55,category: "Design"},
-    
-]
+const skills = [
+
+   // Programming Language
+  { name: "Java", level: 55, category: "Programming Language" },
+  { name: "Kotlin", level: 55, category: "Programming Language" },
+  { name: "JavaScript", level: 55, category: "Programming Language" },
+  { name: "C", level: 55, category: "Programming Language" },
+  { name: "Python", level: 45, category: "Programming Language" },
+  
+  // Framework
+  { name: "React", level: 45, category: "Framework" },
+  { name: "React Native", level: 75, category: "Framework" },
+  { name: "Node.js", level: 55, category: "Framework" },
+  { name: "Express.js", level: 65, category: "Framework" },
+  {name :"Compose Multiplatform", level:75, category:"Framework"},
+  {name :"Jetpack Compose", level:75, category:"Framework"},
+
+
+  // Database
+  { name: "MySQL", level: 60, category: "Database" },
+  { name: "MongoDB", level: 65, category: "Database" },
+
+  // Tools
+  { name: "GitHub", level: 75, category: "Tools" },
+  { name: "Postaman", level: 75, category: "Tools" },
+  { name: "Android Studio", level: 75, category: "Tools" },
+  { name: "Visual Studio Code", level: 70, category: "Tools" },
+
+
+  // Design
+  { name: "Figma", level: 55, category: "Design" },
+  { name: "Canva", level: 75, category: "Design" },
+];
 const categories = ["All", "Programming Language", "Framework", "Database", "Tools", "Design"];
 
 export const SkillsSection = () => {

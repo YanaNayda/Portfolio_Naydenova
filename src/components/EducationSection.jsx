@@ -1,6 +1,8 @@
 import React from "react";
 import Timeline from "./Timeline";
 import {GraduationCap ,School,  BookOpen } from "lucide-react"
+import bagrut from "../../public/documents/bagrut.pdf"
+import bachelor from "../../public/documents/bachelor.pdf"
 
 const education = [
     {
@@ -20,7 +22,7 @@ const education = [
         description: "Graduated with a final GPA of 85+, having learned core software development principles and collaborated on real-world projects during the final year.",
         date: "2022 - 2025",
         buttonText: "Details",
-        demoUrl: "#",
+        demoUrl: bachelor,
         icon: GraduationCap,
         color:"text-gray-800" 
     },{
@@ -30,7 +32,7 @@ const education = [
         description: "Outstanding student in the Systems Planning and Programming major .Graduated with honors (GPA: 104)",
         date: "2015 - 2018",
         buttonText: "Details",
-        demoUrl: "#",
+        demoUrl: bagrut,
         icon: "school",
         color:"text-gray-800" 
     }

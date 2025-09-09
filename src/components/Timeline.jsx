@@ -39,8 +39,12 @@ export default function Timeline({ defaultColor = "text-primary", education = []
                   <div className="text-sm text-gray-300 mb-2">{element.location}</div>
                   <div className="text-sm text-gray-200 mb-4">{element.description}</div>
                   {element.buttonText && (
-                    <a className="inline-block bg-primary px-4 py-2 rounded-md text-white hover:bg-primary-dark">
-                      {element.buttonText}
+                    <a
+                        href={element.demoUrl}           
+                        download                     
+                        className="inline-block bg-primary px-4 py-2 rounded-md text-white hover:bg-primary-dark"
+                    >
+                    {element.buttonText}
                     </a>
                   )}
                 </div>
