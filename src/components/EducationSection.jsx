@@ -17,7 +17,7 @@ const education = [
         id: 2,
         title: "Bachelor's degree in Computer Science",
         location: "Holon Institute of Technology",
-        description: "Learned core software development principles and collaborated on real-world projects during the final year.",
+        description: "Graduated with a final GPA of 85+, having learned core software development principles and collaborated on real-world projects during the final year.",
         date: "2022 - 2025",
         buttonText: "Details",
         demoUrl: "#",
@@ -25,10 +25,10 @@ const education = [
         color:"text-gray-800" 
     },{
         id: 3,
-        title: "Graduation3",
-        location: "University of XYZ",
-        description: "This is a brief description of Project One.",
-        date: "2019 - 2023",
+        title: "Boarding School Program",
+        location: " Ort Yad Leibovitz & Naale",
+        description: "Outstanding student in the Systems Planning and Programming major .Graduated with honors (GPA: 104)",
+        date: "2015 - 2018",
         buttonText: "Details",
         demoUrl: "#",
         icon: "school",
