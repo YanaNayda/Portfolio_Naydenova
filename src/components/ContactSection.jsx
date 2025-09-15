@@ -62,8 +62,8 @@ export const ContactSection = () => {
                         </div>
 
                         <div className="pt-4 text-center" >
-                            <h4>Connect With Me </h4>
-                            <div className="flex space-x-4 mt-4">
+                            <h4 className ="text-2xl font-semibold mb-6" >Connect With Me </h4>
+                            <div className="flex space-x-4  text-center justify-center mt-4">
                                 <a href="https://www.linkedin.com/in/yana-naydenova/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
                                     <Linkedin/>
                                 </a>
@@ -76,7 +76,7 @@ export const ContactSection = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="bg-card p-8 rounded-lg shadow-xs" >
+                    <div className="bg-card  px-4 mt-8 p-8 rounded-lg shadow-xs" >
                             <h3 className= "text-2xl font-semibokd mb-6"> Send a Message </h3>
                             <form className="space-y-6">
                                 <div>

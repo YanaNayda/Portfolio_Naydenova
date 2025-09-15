@@ -11,7 +11,7 @@ const education = [
         location: "Holon Institute of Technology",
         description: "Enrolled in a master's program to deepen knowledge in computer science and explore research opportunities.",
         date: "2025 - 2027",
-        buttonText: "Details",
+        buttonText: "Download Certificate",
         demoUrl: "#",
         icon: GraduationCap,
          color:"text-gray-800" 
@@ -21,17 +21,17 @@ const education = [
         location: "Holon Institute of Technology",
         description: "Graduated with a final GPA of 85+, having learned core software development principles and collaborated on real-world projects during the final year.",
         date: "2022 - 2025",
-        buttonText: "Details",
+        buttonText: "Download Certificate",
         demoUrl: bachelor,
         icon: GraduationCap,
         color:"text-gray-800" 
     },{
         id: 3,
-        title: "Boarding School Program",
-        location: " Ort Yad Leibovitz & Naale",
+        title: "Boarding School",
+        location: " Ort Yad Leibovitz & Naale Program",
         description: "Outstanding student in the Systems Planning and Programming major .Graduated with honors (GPA: 104)",
         date: "2015 - 2018",
-        buttonText: "Details",
+        buttonText: "Download Certificate",
         demoUrl: bagrut,
         icon: "school",
         color:"text-gray-800" 

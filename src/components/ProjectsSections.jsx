@@ -6,28 +6,28 @@ const projects = [
     {
         id: 1,
         name: "DMT - Proms ++ App",
-        description: "The DMT - Proms ++ App is a customizable and flexible platform designed to support various medical use cases.",
+        description: "The DMT - Proms is a customizable and flexible platform designed to support various medical use cases.",
         imageUrl: "public/projects/medical_project.jpg",
         tags: ["Kotlin", "Android Studio","Compose Multiplatform", "GitHub"],
-        demoUrl: "#",
+        
         githubUrl: "https://github.com/YanaNayda/DMT---Proms-"
     },
     {
         id: 2,
         name: "PawPal",
-        description: "A social network for pet lovers to connect, share, and shop.",
+        description: "A social network for pet lovers to connect, share, and shop. It combines a social feed with user profiles, posts, and updates. ",
         imageUrl: "public/projects/pawpal.jpg",
         tags: ["Node.js", "Express", "MongoDB", "React Native", "FireBase", "GitHub"],
-        demoUrl: "#",
+        
         githubUrl: "https://github.com/YanaNayda/PawPal-client"
     },
     {
         id: 3,
         name: "GymBro",
         description:  "A workout planner app that provides personalized training programs based on fitness level and available equipment.",
-        imageUrl: "public/projects/gymbro2.jpg",
+        imageUrl: "public/projects/gymbro.png",
         tags: ["Java", "Android Studio", "Firebase ", "GitHub"],
-        demoUrl: "#",
+     
         githubUrl: "https://github.com/YanaNayda/GymBro"
     },
 
@@ -76,13 +76,7 @@ export  const ProjectsSections = () =>{
 
                     {/* links */}
                     <div className="flex space-x-3">
-                        <a 
-                            href={project.demoUrl}
-                            target="_blank"
-                            className="text-foreground/80 hover:text-primary transition-colors duration-300">
-                            {""}
-                            <ExternalLink size={20}/>
-                        </a>
+                       
                         <a  
                             href={project.githubUrl} 
                             target="_blank"
