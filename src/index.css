@@ -24,6 +24,8 @@
   --animate-fade-in-delay-4: fade-in 0.7s ease-in-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
 
+  --border-radius:60% 40% 30% 70% / 100% 85% 92% 74%;
+
   @keyframes float {
     0% {
       transform: translateY(0);
@@ -55,6 +57,10 @@
      
      }
     }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to   { transform: rotate(360deg); }
+      }
 
      @keyframes meteor {
       0% {
@@ -73,8 +79,8 @@
 
 @layer base {
   :root{
-    --background:210 40% 98%;
-    --foreground:215 41% 4%;
+    --background:263 100% 2.1%
+    --foreground:263 100% 2.1%
     --card:0 0% 100%;
     --primary:250 47% 60%;
     --primary-foreground: 210 40% 98%;
@@ -82,14 +88,54 @@
 
   }
   .dark{
-   --background:222 47% 4%;
+   --background:263 100% 2.1%;
     --foreground:213 31% 91%;
     --card:222 47% 8%;
     --primary:250 65% 65%;
     --primary-foreground: 213 31% 91%;
     --border:217 33% 20%
   }
+  
 }
+.blob {
+  position: absolute;
+  border-radius: var(--border-radius);
+  box-shadow:
+    inset 50px 50px 17px 0px #8d022ba7,
+    inset 100px 100px 17px 0px #6313b8c4;
+  filter: blur(80px);
+}
+.blob--pink {
+  width: 600px;
+  height: 500px;
+  background: linear-gradient(
+    rgba(131, 4, 36, 0.534) 21%,
+    rgba(0, 164, 173, 0.2) 67%,
+    rgba(118, 74, 166, 0.1) 81%
+  );
+  animation: var(--animate-float), spin 30s linear infinite;
+}
+
+.blob--teal {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(
+    rgba(0, 164, 173, 0.2) 67%,
+    rgba(255, 166, 0, 0.498) 60%,
+    rgba(255, 0, 102, 0.126) 90%
+  );
+}
+.blob--blue {
+  width: 300px;
+  height: 200px;
+  background: linear-gradient(
+    rgba(0, 164, 173, 0.795) 67%,
+    rgba(0, 24, 88, 0.498) 60%,
+    rgba(255, 0, 102, 0.126) 90%
+  );
+  animation: var(--animate-float), spin 20s linear infinite;
+}
+
 
 
 * {
@@ -104,7 +150,7 @@ body{
   font-feature-settings: "rlig" 1, "calt" 1;
 
 }
-
+ 
 
 @utility container{
   margin-inline: auto;

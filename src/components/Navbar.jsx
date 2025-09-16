@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { cn } from "../lib/utils";
 import { Menu, X ,Languages, GraduationCap} from "lucide-react";
 import React from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 
 
@@ -105,7 +106,12 @@ export const Navbar = () =>{
                             ))}               
                         </div>
                     </div>
+                    <div className={cn(
+                        "fixed top-16 right-4 bg-background/95  backdrop-blur-md z-40 flex flex-col items-center justify-center rounded-md",
+                        "transition-all duration-300")} > 
 
+                    <ThemeToggle/>
+                    </div>
                 </div>
         </nav>)
 }

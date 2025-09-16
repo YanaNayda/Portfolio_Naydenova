@@ -9,6 +9,8 @@ import { useControls } from "leva";
 import * as THREE from "three";
 
 export function Avatar(props) {
+
+    const { animation } = props;
     const {headFollow, cursorFollow,} = useControls({
         headFollow: false,
         cursorFollow: false,
@@ -16,12 +18,17 @@ export function Avatar(props) {
 
     const group = useRef();
     const { nodes, materials } = useGLTF('models/68c8604461035c30823dc86c.glb')
+
     const { animations: typingAnimation } = useFBX("animations/Typing.fbx");
     const { animations: phoneAnimation } = useFBX("animations/Talking On Phone.fbx");
     const { animations: greetingAnimation } = useFBX("animations/Standing Greeting.fbx");
-    typingAnimation[0].name = "Typing";
 
-    const {actions} = useAnimations(typingAnimation,group)
+    typingAnimation[0].name = "Typing";
+    phoneAnimation[0].name = "Phone";
+    greetingAnimation[0].name = "Greeting";
+
+
+    const {actions} = useAnimations([typingAnimation[0] , phoneAnimation[0] , greetingAnimation[0]], group)
 
     useFrame(( state)=>{ 
         if (headFollow){
@@ -29,13 +36,16 @@ export function Avatar(props) {
         }
          if (cursorFollow) {
       const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 2);
-      group.current.getObjectByName("Spine2").lookAt(target);
+      group.current.getObjectByName("Head").lookAt(target);
     }
     })
 
-  useEffect (() => {
-    actions["Typing"].reset().play()
-  },[])
+  useEffect(() => {
+    actions[animation].reset().fadeIn(0.5).play();
+    return () => {
+      actions[animation].reset().fadeOut(0.5);
+    };
+  }, [animation]);
 
   return (
     <group {...props} ref={group} dispose={null}>  
