@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 import { cn } from "../lib/utils";
 import { Menu, X ,Languages, GraduationCap} from "lucide-react";
 import React from "react";
-import { ThemeToggle } from "./ThemeToggle";
-
+ 
+import {Moon,Sun, TurntableIcon} from "lucide-react"
+ 
 
 
 const navItems = [
@@ -27,9 +28,31 @@ export const Navbar = () =>{
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen,setIsMenuOpen] = useState(false);
     const [isLanguageOpen,setIsLanguageOpen] = useState(false);
-
+    const[isDarkMode, setIsDarkMode] = useState(false)
+    const toggleTheme = () =>{
+        if(isDarkMode){
+           document.documentElement.classList.remove("dark")
+            localStorage.setItem("theme", "light")
+           setIsDarkMode(false)
+        }else{
+           setIsDarkMode(true)
+              document.documentElement.classList.add("dark")
+              localStorage.setItem("theme", "dark")
+        } 
+    }
 
     useEffect(() => {
+        const theme = localStorage.getItem("theme")
+        if(theme === "dark"){
+            setIsDarkMode(true)
+            document.documentElement.classList.add("dark")
+         
+        }else{
+            setIsDarkMode(false)
+            document.documentElement.classList.add("light")
+            
+        }
+
         const handleScroll = () => {
                 setIsScrolled(window.scrollY > 10);
         };
@@ -38,7 +61,7 @@ export const Navbar = () =>{
         return () => {
             window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
+   },[isDarkMode])
 
         return (
         <nav className ={cn(
@@ -67,17 +90,25 @@ export const Navbar = () =>{
 
 
                     {/*mobile version*/}
-                    <button onClick={
+                    <button  onClick={
                         () => setIsMenuOpen((prev) => !prev)}
-                        className="md:hidden p-2 text-foreground z-50"
+                        className="md:hidden  p-2 text-foreground z-50"
                         aria-label= {isMenuOpen ? "Close menu" : "Open menu"}> 
-                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                    </button>
+                    
+                    <button className="btn-grad" onClick={
+                        () => setIsLanguageOpen(!isLanguageOpen)}>
+                        {isLanguageOpen ? <X size={20} /> : <Languages size={20} />}
                     </button>
 
-                    <button onClick={
-                        () => setIsLanguageOpen(!isLanguageOpen)}>
-                        {isLanguageOpen ? <X size={24} /> : <Languages size={24} />}
-                    </button>
+                    <button onClick={toggleTheme} className= {cn(
+                        " btn-grad fixed max-sm:hidden  right-25         ",
+                            "focus:outlin-hidden"
+                    )}
+                    >{isDarkMode ? 
+                       <Sun size={20} />:
+                        <Moon size={20} />}</button>
 
                      {/*menu*/}
                     <div className={cn(
@@ -106,12 +137,7 @@ export const Navbar = () =>{
                             ))}               
                         </div>
                     </div>
-                    <div className={cn(
-                        "fixed top-16 right-4 bg-background/95  backdrop-blur-md z-40 flex flex-col items-center justify-center rounded-md",
-                        "transition-all duration-300")} > 
-
-                    <ThemeToggle/>
-                    </div>
+                     
                 </div>
         </nav>)
 }
