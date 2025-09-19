@@ -74,6 +74,28 @@
         transform: rotate(215deg) translateX(-500px);
         opacity: 0;
       }
+
+}
+
+@keyframes fade {
+ 
+  0% {
+    opacity: 0;
+     transform: translateY(80px);
+  }
+  8.33% {
+    opacity: 1; /* Полная видимость */
+  }
+  33.33% {
+    opacity: 1; /* Удерживаем видимость */
+  }
+  41.66% {
+    opacity: 0; /* Исчезаем */
+  }
+  100% {
+    opacity: 0;
+     transform: translateY(0px); /* Остаёмся скрытыми до следующего цикла */
+  }
 }
 }
 
@@ -137,10 +159,10 @@
 }
 
 
-         .btn-grad {background-image: linear-gradient(to right, #9b2b4f 0%, #1D2671  60%, #4f2280  100%)}
-         .btn-grad {
+.btn-grad {background-image: linear-gradient(to right, #9b2b4f 0%, #1D2671  60%, #4f2280  100%)}
+.btn-grad {
             margin: 10px;
-            padding: 10px 30px;
+            padding: 7px 30px;
             text-align: center;
             text-transform: uppercase;
             transition: 0.4s;
@@ -151,13 +173,33 @@
             display: block;
           }
 
-          .btn-grad:hover {
-            background-position: right center; /* change the direction of the change here */
+.btn-grad:hover {
+            background-position: right center;  
             color: #fff;
             text-decoration: none;
           }
-         
-         
+ .message-container {
+  position: relative;
+  width: 200px;  
+  height: 40px;  
+}       
+.message {
+  position: absolute;
+  top: 0;
+  left: 10;
+  width: 100%;
+  opacity: 0;  
+} 
+     
+.message-1 {
+  animation: fade 14s infinite;
+}
+.message-2 {
+  animation: fade 14s infinite 5s; /* Задержка 4с */
+}
+.message-3 {
+  animation: fade 14s infinite 9s; /* Задержка 8с */
+}
 
 
 * {

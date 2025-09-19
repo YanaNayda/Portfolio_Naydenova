@@ -11,11 +11,7 @@ import * as THREE from "three";
 export function Avatar(props) {
 
     const { animation } = props;
-    const {headFollow, cursorFollow,} = useControls({
-        headFollow: false,
-        cursorFollow: false,
-    })
-
+ 
     const group = useRef();
     const { nodes, materials } = useGLTF('models/68c8604461035c30823dc86c.glb')
 
@@ -29,23 +25,18 @@ export function Avatar(props) {
 
 
     const {actions} = useAnimations([typingAnimation[0] , phoneAnimation[0] , greetingAnimation[0]], group)
+ 
 
-    useFrame(( state)=>{ 
-        if (headFollow){
-             group.current.getObjectByName("Head").lookAt(state.camera.position)
-        }
-         if (cursorFollow) {
-      const target = new THREE.Vector3(state.mouse.x, state.mouse.y, 2);
-      group.current.getObjectByName("Head").lookAt(target);
+useEffect(() => {
+    if (actions[animation]) {
+      actions[animation].reset().fadeIn(0.5).play();
+      return () => {
+        actions[animation].fadeOut(0.5);
+      };
     }
-    })
+  }, [animation, actions]);
 
-  useEffect(() => {
-    actions[animation].reset().fadeIn(0.5).play();
-    return () => {
-      actions[animation].reset().fadeOut(0.5);
-    };
-  }, [animation]);
+ 
 
   return (
     <group {...props} ref={group} dispose={null}>  

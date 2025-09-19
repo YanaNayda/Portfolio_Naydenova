@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { cn } from "../lib/utils";
 import { Menu, X ,Languages, GraduationCap} from "lucide-react";
 import React from "react";
- 
 import {Moon,Sun, TurntableIcon} from "lucide-react"
  
 
@@ -80,7 +79,7 @@ export const Navbar = () =>{
                             <a 
                             key={key}
                             href= {item.href} 
-                            className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                            className="text-foreground/80 hover:text-primary font-bold transition-colors duration-300"
                             onClick={() => setIsMenuOpen(false)}
             
                             > 
