@@ -10,8 +10,9 @@ import AvatarCanvas from "./AvatarCanvas.jsx";
 
 export const HeroSection = () => {  
   const messageFirst = "Hello there!"
-  const messageSecond = "I love coding 🚀"
-  const messageThird = "Let's build something cool!"
+  const messageSecond = "Coding is my kind of art 🎨 "
+  const messageThird = "Let's build something cool! ✨ "
+  const messageFourth ="Hi, nice to meet you! "
   const [visibleMessages, setVisibleMessages] = useState([]);
  
  
@@ -47,24 +48,31 @@ export const HeroSection = () => {
           <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
           <div className="blob blob--purple absolute left-40 top-[100px] w-48 h-48 opacity-60"></div>
           <div className="blob blob--yellow absolute right-10 top-[50px] w-56 h-56 opacity-50"></div>
-            <div className="blob blob--pink absolute top-[250px] left-0 w-64 h-64"></div>
-            <div className="blob blob--blue absolute top-[350px] right-[200px] w-64 h-64"></div>
-            <div className="blob blob--blue absolute bottom-10 right-10 w-64 h-64"></div>
+          <div className="blob blob--pink absolute top-[250px] left-0 w-64 h-64"></div>
+          <div className="blob blob--blue absolute top-[350px] right-[200px] w-64 h-64"></div>
+          <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
         
-            <AvatarCanvas animation={"Greeting"} />
+  
+          
+          <AvatarCanvas animation={"Greeting"} className = "  animate-fade-in-delay-3"/>
+            <div className = "absolute top-1/6 left-15 flex space-y-2">
+              <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
+              <span className="ml-1 ">{messageThird}</span>
+            </div>
+            </div>
 
-            <div className="absolute top-1/3 right-10 flex flex-col space-y-3">
-              <div className="message-container absolute top-1/3 right-30">
-            <div className="message message-1 bg-white/80 backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-              <span className="ml-1">{messageFirst}</span>
-            </div>
-            <div className="message message-2 bg-white/80 backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-              <span className="ml-3">{messageSecond}</span>
-            </div>
-            <div className="message message-3 bg-white/80 backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-              <span className="ml-3">{messageThird}</span>
-            </div>
-          </div>
+            <div className="absolute top-1/3 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
+                <div className="message-container absolute top-1/3 right-10">
+                  <div className="message message-1 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+                    <span className="ml-1">{messageFirst}</span>
+                  </div>
+                  <div className="message message-2 bg-white/80 text-glow  backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+                    <span className="ml-3">{messageSecond}</span>
+                  </div>
+                  <div className="message message-3 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+                    <span className="ml-3">{messageFourth}</span>
+                  </div>
+                </div>
             </div>
          
         </div>
@@ -76,4 +84,4 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};
+};7

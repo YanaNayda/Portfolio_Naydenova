@@ -65,10 +65,10 @@ export const Navbar = () =>{
         return (
         <nav className ={cn(
            "fixed w-full z-40 transition-all duration-300",
-             isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5" ) } >
+             isScrolled ? "py-4 bg-background/80 backdrop-blur-md shadow-xs" : "py-5" ) } >
                 <div className="container flex justify-between items-center mx-auto px-4">
                     <a className="text-xl font-bold text-primary flex items-center" href="/hero">
-                        <span className="relative z-10">
+                        <span className="relative z-11">
                             <span className="text-glow text-foreground">Yana Naydenova </span> Portfolio
                         </span>
                     </a>
@@ -79,7 +79,7 @@ export const Navbar = () =>{
                             <a 
                             key={key}
                             href= {item.href} 
-                            className="text-foreground/80 hover:text-primary font-bold transition-colors duration-300"
+                            className=" text-lg text-foreground/80 hover:text-primary font-bold transition-colors duration-300"
                             onClick={() => setIsMenuOpen(false)}
             
                             > 
