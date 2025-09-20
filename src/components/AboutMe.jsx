@@ -12,8 +12,18 @@ export const AboutMeSection = () => {
                 About 
                 <span className="text-primary"> Me</span>
             </h2>
-
+   <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70"></div>
+           
+          <div className="blob blob--purple absolute left-40 top-[100px] w-48 h-48 opacity-60"></div>
+        <div className="blob blob--pink absolute top-[100px] left-[10px]  w-32 h-32 opacity-60 " ></div>
+          <div className="blob blob--pink absolute top-[200px] right-[50px]  w-64 h-64 opacity-70 " ></div>
+          <div className="blob blob--blue absolute top-[350px] right-[200px] w-64 h-64"></div>
+          <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
+                
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+               
+        
+  
                 <div className="space-y-6">
                     <h3 className = "text-2xl font-bold text-center"> Passionate Developer & Tech Creator</h3>
 

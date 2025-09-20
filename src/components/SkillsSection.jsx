@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
-import { Chair } from "./Chair";
 import { Canvas } from "@react-three/fiber";
 import React  from "react";
 import { ArrowDown } from "lucide-react";
 import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { Avatar } from "./Avatar.jsx";
+import { Room2 } from "./Room2.jsx";  
 import { useControls } from "leva";
 
 const skills = [
@@ -97,19 +97,20 @@ export const SkillsSection = () => {
                         ))}
                     </div>
 
-                  
-                    <div>
+                   
+                </div>
+                 <div className="w-full h-[600px]">
                         <Canvas camera={{ position: [0, 2, 9], fov: 15 }}>
                             <ambientLight intensity={1} />
                             <directionalLight position={[5, 5, 5]} />
                             <group>
-                                <Chair />
+                                <Room2 />
                             </group>
                             <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
                             <ContactShadows position={[0, 0, 0]} opacity={0.5} scale={10} blur={1} />
                         </Canvas>
                     </div>
-                </div>
+
             </div>
         </section>
     )
