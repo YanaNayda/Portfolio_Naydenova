@@ -4,9 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import React  from "react";
 import { ArrowDown } from "lucide-react";
 import { ContactShadows, OrbitControls } from "@react-three/drei";
-import { Avatar } from "./Avatar.jsx";
-import { Room2 } from "./Room2.jsx";  
-import { useControls } from "leva";
+import { useControls } from "leva"; 
 
 const skills = [
 
@@ -75,12 +73,18 @@ export const SkillsSection = () => {
                 </div>
 
                  
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                      <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70"></div>
+          <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
+          <div className="blob blob--purple absolute left-40 top-[100px] w-48 h-48 opacity-60"></div>
+          <div className="blob blob--yellow absolute right-10 top-[50px] w-56 h-56 opacity-50"></div>
+          <div className="blob blob--pink absolute top-[250px] left-0 w-64 h-64"></div>
+          <div className="blob blob--blue absolute top-[350px] right-[200px] w-64 h-64"></div>
+          <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
                         {filteredSkils.map((skill, key) => (
                             <div
                                 key={key}
-                                className="bg-card p-6 rounded-lg shadow-xs card-hover"
+                                className="bg-card p-6 rounded-lg shadow-xs card-hover z-20"
                             >
                                 <h3 className="text-2xl font-semibold mb-2 text-center">{skill.name}</h3>
                                 <p className="text-m text-primary mb-2 text-center">{skill.category}</p> 
@@ -95,22 +99,9 @@ export const SkillsSection = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
-
-                   
+                    
                 </div>
-                 <div className="w-full h-[600px]">
-                        <Canvas camera={{ position: [0, 2, 9], fov: 15 }}>
-                            <ambientLight intensity={1} />
-                            <directionalLight position={[5, 5, 5]} />
-                            <group>
-                                <Room2 />
-                            </group>
-                            <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
-                            <ContactShadows position={[0, 0, 0]} opacity={0.5} scale={10} blur={1} />
-                        </Canvas>
-                    </div>
-
+                 
             </div>
         </section>
     )

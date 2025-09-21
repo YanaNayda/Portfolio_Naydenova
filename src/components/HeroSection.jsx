@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import { ArrowDown, MessageSquare, Code, Rocket } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
-import { Avatar } from "./Avatar.jsx";
+import { AvatarHero } from "./AvatarHero.jsx";
 import { useControls } from "leva";
 import { motion, AnimatePresence } from "framer-motion";
-import AvatarCanvas from "./AvatarCanvas.jsx";  
+ 
 
 
 export const HeroSection = () => {  
@@ -23,7 +23,7 @@ export const HeroSection = () => {
       <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 items-center relative max-w-[80%] mx-auto gap-2">
-        <div className="space-y-10">
+        <div className="space-y-10  z-20">
           <h1 className="text-3xl md:text-6xl text-center tracking-tight">
             <span className="opacity-0 animate-fade-in">Hi, I'm</span>
             <span className="text-primary text-glow opacity-0 animate-fade-in-delay-1"> Yana</span>
@@ -44,24 +44,42 @@ export const HeroSection = () => {
         </div>
 
         <div className="relative h-full">
-          <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70"></div>
-          <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
-          <div className="blob blob--purple absolute left-40 top-[100px] w-48 h-48 opacity-60"></div>
-          <div className="blob blob--yellow absolute right-10 top-[50px] w-56 h-56 opacity-50"></div>
-          <div className="blob blob--pink absolute top-[250px] left-0 w-64 h-64"></div>
-          <div className="blob blob--blue absolute top-[350px] right-[200px] w-64 h-64"></div>
-          <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
+          <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2  z-0 w-72 h-32 opacity-70"></div>
+          <div className="blob blob--teal h-[100px] absolute left-20 top-[200px]  z-0 -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
+          <div className="blob blob--purple absolute left-40 top-[100px] z-0 w-48 h-48 opacity-60"></div>
+          <div className="blob blob--yellow absolute right-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
+          <div className="blob blob--pink absolute top-[250px] z-0 left-0 w-64 h-64"></div>
+          <div className="blob blob--blue absolute top-[350px] right-[200px] z-0 w-64 h-64"></div>
+          <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 z-0 w-64 opacity-70"></div>
         
   
           
-          <AvatarCanvas animation={"Greeting"} className = "  animate-fade-in-delay-3"/>
-            <div className = "absolute top-1/6 left-15 flex space-y-2">
+           
+          <Canvas
+      className="min-h-screen opacity-0 z-30 animate-fade-in-delay-3"
+      camera={{ position: [0, 2, 9], fov: 15 }}
+    >
+      <ambientLight intensity={1} />
+      <directionalLight position={[5, 5, 5]} />
+      <group position-y={-1}>
+        <ContactShadows
+          opacity={1}
+          scale={10}
+          blur={1}
+          far={10}
+          resolution={256}
+          color="rgba(0, 0, 0, 1)"
+        />
+        <AvatarHero animation={"Greeting"} />
+      </group>
+    </Canvas>
+            <div className = "absolute  z-20 top-1/6 left-15 flex space-y-2">
               <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
               <span className="ml-1 ">{messageThird}</span>
             </div>
             </div>
 
-            <div className="absolute top-1/3 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
+            <div className="absolute top-1/3   z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
                 <div className="message-container absolute top-1/3 right-10">
                   <div className="message message-1 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
                     <span className="ml-1">{messageFirst}</span>
@@ -84,4 +102,4 @@ export const HeroSection = () => {
       </div>
     </section>
   );
-};7
+};
