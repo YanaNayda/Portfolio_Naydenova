@@ -1,21 +1,27 @@
 
 import { Code, User, Briefcase } from "lucide-react";
+import "../i18n";
+import { t } from "i18next";
+ 
+ import { useTranslation } from "react-i18next";
 
 
 export const AboutMeSection = () => {
+     const {t ,i18n} = useTranslation();
+
     return  (
     <section id ="about"
     className=" py-24 px-20 relative">
         {" "}
         <div className="container mx-auto max-w-5xl">
             <h2 className="text-4xl font-bold mb-8 text-center">
-                About 
-                <span className="text-primary"> Me</span>
+                 {t("about")}
+                <span className="text-primary"> {t("me")}</span>
             </h2>
    <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70"></div>
            
           <div className="blob blob--purple absolute left-40 top-[100px] w-48 h-48 opacity-60"></div>
-        <div className="blob blob--pink absolute top-[100px] left-[10px]  w-32 h-32 opacity-60 " ></div>
+         <div className="blob blob--pink absolute top-[100px] left-[10px]  w-32 h-32 opacity-60 " ></div>
           <div className="blob blob--pink absolute top-[200px] right-[50px]  w-64 h-64 opacity-70 " ></div>
           <div className="blob blob--blue absolute top-[350px] right-[200px] w-64 h-64"></div>
           <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
@@ -25,32 +31,30 @@ export const AboutMeSection = () => {
         
   
                 <div className="space-y-6">
-                    <h3 className = "text-2xl font-bold text-center"> Passionate Developer & Tech Creator</h3>
+                    <h3 className = "text-2xl font-bold text-center">{t("passionateDeveloper")}</h3>
 
                     <p className="text-muted-foreground">
-                        I am a Computer Science graduate turning ideas into interactive applications with modern technologies.
-                        I enjoy creating clean and user-friendly software that solves real problems.
+                        {t("textAboutFirst")}
+                    
                     </p>
 
                      <p className="text-muted-foreground">
-                        I have experience working with a variety of tools and frameworks, constantly learning new technologies to stay up-to-date and deliver
-                        high-quality results.
+                        {t("textAboutSecond")}
                     </p>
 
                     <p className="text-muted-foreground">
-                        I am motivated, detail-oriented, and enjoy taking on new challenges,
-                        always striving to improve as a developer and make a positive impact through my work.
+                        {t("textAboutThird")}
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center " >
                         <a href= "#contact" className="cosmic-button">
                             {" "}
-                            Contact Me
+                            {t("contactMe")}
                         </a>
 
                          <a href= "#contact" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10  transition-colors duration-300">
                             {" "}
-                            Download CV
+                            {t("downloadCV")}
                         </a>
                     </div>
                 </div>
@@ -62,9 +66,9 @@ export const AboutMeSection = () => {
                                     <Code className="h-6 w-6 text-primary"/>
                                 </div>
                             <div className="text-left">
-                                <h4 className="font-semibold text-lg"> Web Development</h4>
+                                <h4 className="font-semibold text-lg"> {t("problemSolving")}</h4>
                                 <p className="text-muted-foreground">
-                                  Creating bla bla bla bla bla bla bla    
+                                    {t("problemSolvingExplain")}
                                 </p>
                             </div>
                         </div>
@@ -76,9 +80,9 @@ export const AboutMeSection = () => {
                                 <User className="h-6 w-6 text-primary"/>
                             </div>
                             <div className="text-left">
-                                <h4 className="font-semibold text-lg"> Web Development</h4>
+                                <h4 className="font-semibold text-lg"> {t("collaboration")} </h4>
                                 <p className="text-muted-foreground">
-                                  Creating bla bla bla bla bla bla bla    
+                                    {t("collaborationExplain")}
                                 </p>
                             </div>
 
@@ -90,9 +94,9 @@ export const AboutMeSection = () => {
                                 <Briefcase className="h-6 w-6 text-primary"/>
                             </div>
                             <div className="text-left">
-                                <h4 className="font-semibold text-lg"> Web Development</h4>
+                                <h4 className="font-semibold text-lg">  {t("innovation")} </h4>
                                 <p className="text-muted-foreground">
-                                  Creating bla bla bla bla bla bla bla    
+                                    {t("innovationExplain")}
                                 </p>
                             </div>
 

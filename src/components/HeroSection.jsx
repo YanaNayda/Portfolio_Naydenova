@@ -5,16 +5,14 @@ import { ContactShadows } from "@react-three/drei";
 import { AvatarHero } from "./AvatarHero.jsx";
 import { useControls } from "leva";
 import { motion, AnimatePresence } from "framer-motion";
- 
+ import "../i18n";
+ import { useTranslation } from "react-i18next";
 
 
 export const HeroSection = () => {  
-  const messageFirst = "Hello there!"
-  const messageSecond = "Coding is my kind of art 🎨 "
-  const messageThird = "Let's build something cool! ✨ "
-  const messageFourth ="Hi, nice to meet you! "
+  
   const [visibleMessages, setVisibleMessages] = useState([]);
- 
+  const {t ,i18n} = useTranslation();
  
 
   return (
@@ -25,20 +23,18 @@ export const HeroSection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 items-center relative max-w-[80%] mx-auto gap-2">
         <div className="space-y-10  z-20">
           <h1 className="text-3xl md:text-6xl text-center tracking-tight">
-            <span className="opacity-0 animate-fade-in">Hi, I'm</span>
-            <span className="text-primary text-glow opacity-0 animate-fade-in-delay-1"> Yana</span>
-            <span className="text-primary text-glow opacity-0 animate-fade-in-delay-2"> Naydenova</span>
+            <span className="opacity-0 animate-fade-in"> {t("greeting")}</span>
+            <span className="text-primary text-glow opacity-0 animate-fade-in-delay-1"> {t("name")}</span>
+            <span className="text-primary text-glow opacity-0 animate-fade-in-delay-2"> {t("surname")}</span>
           </h1>
 
           <p className="text-lg md:text-3xl text-muted-foreground max-w-3xl text-center mx-auto opacity-0 animate-fade-in-delay-2">
-            Computer Science graduate and software developer passionate about
-            creating clean, user-friendly applications and exploring modern
-            technologies.
+            {t("textAbout")}
           </p>
 
           <div className="pt-4 opacity-0 animate-fade-in-delay-4">
             <a href="#projects" className="cosmic-button">
-              View My Work
+              {t("viewWork")}
             </a>
           </div>
         </div>
@@ -75,20 +71,20 @@ export const HeroSection = () => {
     </Canvas>
             <div className = "absolute  z-20 top-1/6 left-15 flex space-y-2">
               <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
-              <span className="ml-1 ">{messageThird}</span>
+              <span className="ml-1 "> {t("messageThirdAbout")} </span>
             </div>
             </div>
 
             <div className="absolute top-1/3   z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
                 <div className="message-container absolute top-1/3 right-10">
                   <div className="message message-1 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-                    <span className="ml-1">{messageFirst}</span>
+                    <span className="ml-1"> {t("messageFirstAbout")}</span>
                   </div>
                   <div className="message message-2 bg-white/80 text-glow  backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-                    <span className="ml-3">{messageSecond}</span>
+                    <span className="ml-3"> {t("messageSecondAbout")}</span>
                   </div>
                   <div className="message message-3 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-                    <span className="ml-3">{messageFourth}</span>
+                    <span className="ml-3"> {t("messageFourthAbout")}</span>
                   </div>
                 </div>
             </div>
@@ -97,7 +93,7 @@ export const HeroSection = () => {
       </div>
 
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2">Scroll</span>
+        <span className="text-sm text-muted-foreground mb-2">{t("scroll")}</span>
         <ArrowDown className="h-5 w-5 text-primary ml-2" />
       </div>
     </section>

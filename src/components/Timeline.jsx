@@ -1,10 +1,11 @@
- import React from "react";
+import React from "react";
 import {GraduationCap ,School,  BookOpen } from "lucide-react"
+import "../i18n";
 
 export default function Timeline({ defaultColor = "text-primary", education = [] }) {
   return (
     <div className="relative w-full max-w-5xl  mx-auto py-10">
-     <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2  z-0 w-72 h-32 opacity-70"></div>
+    <div className="absolute left-[calc(25%+2rem)] top-6 bottom-6 transform -translate-x-1/2 w-px bg-primary  z-10"></div>
         
           <div className="blob blob--purple absolute left-40 top-[100px] z-0 w-48 h-48 opacity-60"></div>
           <div className="blob blob--yellow absolute left-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
@@ -12,6 +13,9 @@ export default function Timeline({ defaultColor = "text-primary", education = []
           <div className="blob blob--blue absolute top-[350px]  left-[200px] z-0 w-64 h-64"></div>
           <div className="blob blob--teal  absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 z-0 w-64 opacity-70"></div>
       <div className="flex flex-col  z-20 gap-12">
+        
+         
+
         {education.map((element) => {
           let IconComponent;
           if (typeof element.icon === "string") {
@@ -30,7 +34,7 @@ export default function Timeline({ defaultColor = "text-primary", education = []
  
               <div className="relative flex flex-col items-center w-16">
                
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 h-full  z-20 w-px bg-primary opacity-30"></div>
+                 
  
                  <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white">
                   <IconComponent className={`${element.color || defaultColor} w-6 h-6`} />

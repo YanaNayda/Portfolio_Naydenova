@@ -3,31 +3,38 @@ import { cn } from "../lib/utils";
 import { Menu, X ,Languages, GraduationCap} from "lucide-react";
 import React from "react";
 import {Moon,Sun, TurntableIcon} from "lucide-react"
- 
+import { useTranslation } from "react-i18next";
+import "../i18n"; 
 
-
-const navItems = [
-    {name:"Home" ,href: "#hero"},
-    {name:"About" ,href: "#about"},
-    {name:"Skills" ,href: "#skills"},
-    {name:"Projects" ,href: "#projects"},
-    {name:"Education" ,href: "#education"},
-    {name:"Contact" ,href: "#contact"}
-]
+ const navItems = [
+  { key: "home", href: "#hero" },
+  { key: "about", href: "#about" },
+  { key: "skills", href: "#skills" },
+  { key: "education", href: "#education" },
+  { key: "projects", href: "#projects" },
+  { key: "contact", href: "#contact" },
+];
 
 const languages = [
-    {name:"EN" ,href: "#en"},
-    {name:"RU" ,href: "#ru"},
-    {name:"UK" ,href: "#uk"},
-    {name:"HE" ,href: "#he"},
+    {name:"en" ,href: "#en"},
+    {name:"ru" ,href: "#ru"},
+    {name:"uk" ,href: "#uk"},
+    {name:"he" ,href: "#he"},
    
 ]
 
 export const Navbar = () =>{
+
+    const {t ,i18n} = useTranslation();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen,setIsMenuOpen] = useState(false);
     const [isLanguageOpen,setIsLanguageOpen] = useState(false);
     const[isDarkMode, setIsDarkMode] = useState(false)
+
+  
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+    }
     const toggleTheme = () =>{
         if(isDarkMode){
            document.documentElement.classList.remove("dark")
@@ -41,7 +48,7 @@ export const Navbar = () =>{
     }
 
     useEffect(() => {
-        const theme = localStorage.getItem("theme")
+          const theme = localStorage.getItem("theme")
         if(theme === "dark"){
             setIsDarkMode(true)
             document.documentElement.classList.add("dark")
@@ -63,27 +70,30 @@ export const Navbar = () =>{
    },[isDarkMode])
 
         return (
+
         <nav className ={cn(
            "fixed w-full z-40 transition-all duration-300",
              isScrolled ? "py-4 bg-background/80 backdrop-blur-md shadow-xs" : "py-5" ) } >
                 <div className="container flex justify-between items-center mx-auto px-4">
-                    <a className="text-xl font-bold text-primary flex items-center" href="/hero">
+                   <a 
+                    className="text-xl font-bold text-primary flex items-center" 
+                    href="#hero" 
+                    onClick={() => setIsMenuOpen(false)}>
                         <span className="relative z-11">
-                            <span className="text-glow text-foreground">Yana Naydenova </span> Portfolio
+                            <span className="text-glow text-foreground"> {t("nameYanaNaydenova")}</span> {t("portfolio")}
                         </span>
-                    </a>
+                    </a>    
 
                     {/*desktop version*/}
                     <div className="hidden md:flex space-x-8">
                         {navItems.map((item,key) =>(
-                            <a 
-                            key={key}
-                            href= {item.href} 
-                            className=" text-lg text-foreground/80 hover:text-primary font-bold transition-colors duration-300"
-                            onClick={() => setIsMenuOpen(false)}
-            
-                            > 
-                            {item.name}</a>
+                            <a
+                                key={item.key}
+                                href={item.href}
+                                className="text-lg text-foreground/80 hover:text-primary font-bold transition-colors duration-300"
+                            >
+                                {t(item.key)}
+                            </a>
                         ))}               
                     </div>
 
@@ -91,23 +101,24 @@ export const Navbar = () =>{
                     {/*mobile version*/}
                     <button  onClick={
                         () => setIsMenuOpen((prev) => !prev)}
-                        className="md:hidden  p-2 text-foreground z-50"
+                        className="md:hidden   p-2 text-foreground z-50"
                         aria-label= {isMenuOpen ? "Close menu" : "Open menu"}> 
                         {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>
                     
-                    <button className="btn-grad" onClick={
+                    <button className="btn-grad" onClick={     
                         () => setIsLanguageOpen(!isLanguageOpen)}>
                         {isLanguageOpen ? <X size={20} /> : <Languages size={20} />}
                     </button>
 
-                    <button onClick={toggleTheme} className= {cn(
+
+                    {/* <button onClick={toggleTheme} className= {cn(
                         " btn-grad fixed max-sm:hidden  right-25         ",
                             "focus:outlin-hidden"
                     )}
                     >{isDarkMode ? 
                        <Sun size={20} />:
-                        <Moon size={20} />}</button>
+                        <Moon size={20} />}</button> */}
 
                      {/*menu*/}
                     <div className={cn(
@@ -130,9 +141,9 @@ export const Navbar = () =>{
                         isLanguageOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
                         )}> 
 
-                        <div className="flex flex-col space-y-2 text-xl p-4">
+                        <div className={cn("flex flex-col space-y-2 text-xl p-4", languages.code === i18n.language ? "bg-primary text-white" : "text-foreground/80 hover:text-primary transition-colors duration-300")}>
                             {languages.map((item,key) =>(
-                                <a key={key} href= {item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300"> {item.name}</a>
+                                <a key={key} href= {item.href} onClick={() => changeLanguage(item.name)} className="text-foreground/80 hover:text-primary transition-colors duration-300"> {item.name}</a>
                             ))}               
                         </div>
                     </div>

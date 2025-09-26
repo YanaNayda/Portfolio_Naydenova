@@ -1,6 +1,6 @@
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
 import React from "react";
-
+import "../i18n";
 
 const projects = [
     {
@@ -36,8 +36,22 @@ const projects = [
 
 export  const ProjectsSections = () =>{
     return( 
-    <section id="projects" className="py-24 px-4 relative">
-        <div className ="container mx-auto max-w-5xl">
+
+   <section id="projects" className="py-24 px-4 sm:px-6 text-foreground relative min-h-screen bg-secondary  ">
+
+        <div className="absolute inset-0 flex items-center justify-center flex-col z-0 space-y-6">
+            <div className="blob blob--teal   w-72 h-32 opacity-70"></div>
+            <div className="blob blob--teal    w-64 h-64 opacity-70"></div>
+            <div className="blob blob--pink w-64 h-64"></div>
+        </div>
+         <div className="absolute inset-0 flex items-center justify-center z-0 space-y-6">
+            <div className="blob blob--teal   w-72 h-32  "></div>
+            <div className="blob blob--teal    w-64 h-64  "></div>
+            <div className="blob blob--pink w-64 h-64"></div>
+        </div>
+
+
+        <div className ="container mx-auto max-w-6xl relative  z-20">
             <h2 className = "text-3xl md:text-4xl font-bold mb-8 text-center">
                 {""}
                 Featured <span className="text-primary"> Projects</span>
@@ -45,8 +59,9 @@ export  const ProjectsSections = () =>{
             <p className ="text-center text-muted-foreground mb-12">
                 Here are some of the projects I've worked on recently. Click on any project to learn more about it. 
             </p>
+                 
             
-            <div className = "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className = "grid grid-cols-1 z-10 sm:grid-cols-2 lg:grid-cols-3 gap-8   ">
                 {projects.map((project) => (
                     <div 
                         key={project.id}
@@ -65,7 +80,7 @@ export  const ProjectsSections = () =>{
                          
 
                     {/* tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap  z-10 gap-2 mb-4">
                         {project.tags.map((tag) => (
                             <span className="px-2 py-1 font-medium border text-xs rounded-full bg-secondary text-secondary " key={tag}>
                                 {tag}</span>))}

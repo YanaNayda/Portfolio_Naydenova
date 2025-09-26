@@ -193,13 +193,13 @@
 } 
      
 .message-1 {
-  animation: fade 14s infinite;
+  animation: fade 18s infinite;
 }
 .message-2 {
-  animation: fade 14s infinite 5s; /* Задержка 4с */
+  animation: fade 18s infinite 7s; /* Задержка 4с */
 }
 .message-3 {
-  animation: fade 14s infinite 9s; /* Задержка 8с */
+  animation: fade 18s infinite 11s; /* Задержка 8с */
 }
 
 

@@ -8,9 +8,11 @@ import { useControls } from "leva";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { Room5 } from "./Room5.jsx";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import "../i18n";
 
-
-
+ 
 const education = [
     {
         id: 1,
@@ -21,7 +23,7 @@ const education = [
         buttonText: "Download Certificate",
         demoUrl: "#",
         icon: GraduationCap,
-         color:"text-gray-800" 
+        color:"text-white-800" 
     },{
         id: 2,
         title: "Bachelor's degree in Computer Science",
@@ -31,7 +33,7 @@ const education = [
         buttonText: "Download Certificate",
         demoUrl: bachelor,
         icon: GraduationCap,
-        color:"text-gray-800" 
+        color:"text-white-800" 
     },{
         id: 3,
         title: "Boarding School",
@@ -41,51 +43,85 @@ const education = [
         buttonText: "Download Certificate",
         demoUrl: bagrut,
         icon: "school",
-        color:"text-gray-800" 
+         color:"text-white-800"  
     }
 ]
 export const EducationSection = () => {
+
+    const messageFirst = "Every day I dive deeper into Computer Science 📘"
+    const messageSecond = "AI is my favorite playground for ideas 🤖"
+    const messageThird = "Tech has the power to shape the future ✨"
+    const messageFourth = "I’m also improving my English skills to grow internationally 🌍"
+
   return (
-    <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-background text-foreground">
-        <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2  z-0 w-72 h-32 opacity-70"></div>
-          <div className="blob blob--teal h-[100px] absolute left-20 top-[200px]  z-0 -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
-          <div className="blob blob--purple absolute left-40 top-[100px] z-0 w-48 h-48 opacity-60"></div>
-          <div className="blob blob--yellow absolute right-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
-          <div className="blob blob--pink absolute top-[250px] z-0 left-0 w-64 h-64"></div>
-          <div className="blob blob--blue absolute top-[350px] right-[200px] z-0 w-64 h-64"></div>
-          <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 z-0 w-64 opacity-70"></div>
-      <div className="container mx-auto max-w-l">
 
-        
-        <h2 className="text-4xl font-bold mb-8 text-center">
-          My <span className="text-primary"> Education </span>
-        </h2>
-      </div> 
-      <div className="container mx-auto py-2  grid grid-cols-1 lg:grid-cols-3 text-center">
-         <div className="lg:col-span-2 text-left justify-start w-full h-full  ">
-          <Timeline defaultColor="bg-blue-500 min-w-[3500px]" education={education} />
-        </div> 
-         <div className="lg:col-span-1 w-full h-full flex justify-start items-center">  
-        <Canvas camera={{ position: [14, 9, 12], fov: 30, near:0.01, far:1000  }}>
-          <ambientLight intensity={1} />
-          <directionalLight position={[5, 5, 5]} />
-           <group   > 
-              <group position={[3, -2, 0]} rotation={[0, Math.PI, 0]} scale={[1, 1, 1]}>
-                <Room5/>
-              </group>
+ <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-background text-foreground relative">
 
-              <group position={[ 3.6, -1.35, -0.2]}  scale={[3, 3, 3]}  >
-                <AvatarEducation animation={"Typing"}  />
-              </group>
-          </group>
-          {/* <AvatarCanvas animation={"Typing"} /> */}
-          <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
-           
-        </Canvas>    
-        </div>
-        
-      </div>
-      
-    </section>
+  <div className="absolute inset-0 -left-32 flex flex-col items-center z-[-1] space-y-6">
+    <div className="blob blob--teal w-72 h-32 opacity-70"></div>
+    <div className="blob blob--yellow w-56 h-56 opacity-50"></div>
+    <div className="blob blob--pink w-64 h-64"></div>
+    <div className="blob blob--blue w-64 h-64"></div>
+    <div className="blob blob--teal w-64 h-64 opacity-70"></div>
+  </div>
+
+  <div className="container mx-auto max-w-l z-10 relative">
+    <h2 className="text-4xl font-bold mb-8 text-center">
+      My <span className="text-primary"> Education </span>
+    </h2>
+  </div>
+
+  <div className="container mx-auto py-2 grid grid-cols-1 lg:grid-cols-3 text-center relative z-10">
+    <div className="lg:col-span-1 w-full h-full flex justify-start items-center relative">
+
+    <div className="absolute inset-0 -left-42  bottom-0flex flex-col items-center z-[-1] space-y-6">
+    <div className="blob blob--teal w-72 h-32 opacity-70"></div>
+    <div className="blob blob--teal w-64 h-64 opacity-70"></div>
+    <div className="blob blob--purple w-48 h-48 opacity-60"></div>
+    <div className="blob blob--yellow w-56 h-56 opacity-50"></div>
+    <div className="blob blob--pink w-64 h-64"></div>
+    <div className="blob blob--blue w-64 h-64"></div>
+    <div className="blob blob--teal w-64 h-64 opacity-70"></div>
+  </div>
+
+  <Canvas className="relative z-10" camera={{ position: [-12,5,11], fov: 38 }}>
+    <ambientLight intensity={1} />
+    <directionalLight position={[5, 5, 5]} />
+    <group>
+      <group position={[-3.2, -2, 0]} rotation={[0, Math.PI, 0]} scale={[1, 1, 1]}>
+        <Room5 />
+      </group>
+      <group position={[-2, -1.2, 0]} scale={[3, 3, 3]}>
+        <AvatarEducation animation={"Typing"} />
+      </group>
+    </group>
+  </Canvas>
+   <div className = "absolute  z-20 top-1/6 left-15 flex space-y-2">
+              <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
+              <span className="ml-1 ">{messageThird}</span>
+            </div>
+            </div>
+
+            <div className="absolute top-1/3   z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
+                <div className="message-container absolute top-1/3 right-10">
+                  <div className="message message-1 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+                    <span className="ml-1">{messageFirst}</span>
+                  </div>
+                  <div className="message message-2 bg-white/80 text-glow  backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+                    <span className="ml-3">{messageSecond}</span>
+                  </div>
+                  <div className="message message-3 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+                    <span className="ml-3">{messageFourth}</span>
+                  </div>
+                </div>
+            </div>
+         
+</div>
+
+    <div className="lg:col-span-2 text-left justify-start w-full h-full">
+      <Timeline defaultColor="bg-blue-500 min-w-[3500px]" education={education} />
+    </div>
+  </div>
+</section>
   );
 };

@@ -5,6 +5,8 @@ import React  from "react";
 import { ArrowDown } from "lucide-react";
 import { ContactShadows, OrbitControls } from "@react-three/drei";
 import { useControls } from "leva"; 
+import "../i18n";
+import { useTranslation } from "react-i18next";
 
 const skills = [
 
@@ -43,6 +45,7 @@ const categories = ["All", "Programming Language", "Framework", "Database", "Too
 
 export const SkillsSection = () => {
 
+    const {t ,i18n} = useTranslation();
     const [activeCategory, setActiveCategory] = useState("All");
     const filteredSkils =skills.filter((skill) =>
         activeCategory === "All" ? true : skill.category === activeCategory
@@ -67,7 +70,7 @@ export const SkillsSection = () => {
                             )}
                             onClick={() => setActiveCategory(category)}
                         >
-                            {category}
+                            {t(category)}
                         </button>
                     ))}
                 </div>
@@ -87,7 +90,7 @@ export const SkillsSection = () => {
                                 className="bg-card p-6 rounded-lg shadow-xs card-hover z-20"
                             >
                                 <h3 className="text-2xl font-semibold mb-2 text-center">{skill.name}</h3>
-                                <p className="text-m text-primary mb-2 text-center">{skill.category}</p> 
+                                <p className="text-m text-primary mb-2 text-center">{t(skill.category)}</p> 
                                 <div className="w-full bg-secondary/50 h-2 rounded-full overflow-hidden">
                                     <div
                                         className="bg-primary h-2 rounded-full origin-left animate-[grow_1.5s_ease-out]"
