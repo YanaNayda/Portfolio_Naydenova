@@ -8,11 +8,12 @@ import { motion, AnimatePresence } from "framer-motion";
  import "../i18n";
  import { useTranslation } from "react-i18next";
 
-
+  const MemoAvatar = React.memo(AvatarHero);
 export const HeroSection = () => {  
   
   const [visibleMessages, setVisibleMessages] = useState([]);
   const {t ,i18n} = useTranslation();
+ 
  
 
   return (
@@ -66,7 +67,7 @@ export const HeroSection = () => {
           resolution={256}
           color="rgba(0, 0, 0, 1)"
         />
-        <AvatarHero animation={"Greeting"} />
+        <MemoAvatar animation={"Greeting"} />
       </group>
     </Canvas>
             <div className = "absolute  z-20 top-1/6 left-15 flex space-y-2">

@@ -1,8 +1,11 @@
 import React from "react";
 import {GraduationCap ,School,  BookOpen } from "lucide-react"
 import "../i18n";
+import { useTranslation } from "react-i18next";
 
 export default function Timeline({ defaultColor = "text-primary", education = [] }) {
+
+  const {t,i18n} = useTranslation();
   return (
     <div className="relative w-full max-w-5xl  mx-auto py-10">
     <div className="absolute left-[calc(25%+2rem)] top-6 bottom-6 transform -translate-x-1/2 w-px bg-primary  z-10"></div>
@@ -44,16 +47,16 @@ export default function Timeline({ defaultColor = "text-primary", education = []
          
               <div className="flex-1  z-20 ml-6">
                 <div className="border border-gray-600 rounded-lg px-6 py-4 bg-gray-800 shadow-md">
-                  <div className="text-xl font-semibold mb-1">{element.title}</div>
-                  <div className="text-sm text-gray-300 mb-2">{element.location}</div>
-                  <div className="text-sm text-gray-200 mb-4">{element.description}</div>
+                  <div className="text-xl font-semibold mb-1">{t(element.title)}</div>
+                  <div className="text-sm text-gray-300 mb-2">{t(element.location)}</div>
+                  <div className="text-sm text-gray-200 mb-4">{t(element.description)}</div>
                   {element.buttonText && (
                     <a
                         href={element.demoUrl}           
                         download                     
                         className="inline-block bg-primary px-4  z-20 py-2 rounded-md text-white hover:bg-primary-dark"
                     >
-                    {element.buttonText}
+                    {t(element.buttonText)}
                     </a>
                   )}
                 </div>

@@ -8,7 +8,7 @@ import "../i18n";
 
  const navItems = [
   { key: "home", href: "#hero" },
-  { key: "about", href: "#about" },
+  { key: "aboutMe", href: "#about" },
   { key: "skills", href: "#skills" },
   { key: "education", href: "#education" },
   { key: "projects", href: "#projects" },
@@ -85,7 +85,7 @@ export const Navbar = () =>{
                     </a>    
 
                     {/*desktop version*/}
-                    <div className="hidden md:flex space-x-8">
+                    <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 z-10">
                         {navItems.map((item,key) =>(
                             <a
                                 key={item.key}
@@ -96,20 +96,19 @@ export const Navbar = () =>{
                             </a>
                         ))}               
                     </div>
-
-
+                    <button className="btn-grad absolute right-0 md:right-4    z-20" onClick={     
+                        () => setIsLanguageOpen(!isLanguageOpen)}>
+                        {isLanguageOpen ? <X size={20} /> : <Languages size={20} />}
+                    </button>
                     {/*mobile version*/}
                     <button  onClick={
                         () => setIsMenuOpen((prev) => !prev)}
-                        className="md:hidden   p-2 text-foreground z-50"
+                        className="md:hidden  p-2 text-foreground z-50"
                         aria-label= {isMenuOpen ? "Close menu" : "Open menu"}> 
                         {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
                     </button>
                     
-                    <button className="btn-grad" onClick={     
-                        () => setIsLanguageOpen(!isLanguageOpen)}>
-                        {isLanguageOpen ? <X size={20} /> : <Languages size={20} />}
-                    </button>
+                    
 
 
                     {/* <button onClick={toggleTheme} className= {cn(
@@ -143,7 +142,12 @@ export const Navbar = () =>{
 
                         <div className={cn("flex flex-col space-y-2 text-xl p-4", languages.code === i18n.language ? "bg-primary text-white" : "text-foreground/80 hover:text-primary transition-colors duration-300")}>
                             {languages.map((item,key) =>(
-                                <a key={key} href= {item.href} onClick={() => changeLanguage(item.name)} className="text-foreground/80 hover:text-primary transition-colors duration-300"> {item.name}</a>
+                                <button key={key} href= {item.href} onClick={() => changeLanguage(item.name)}  className={cn(
+                                    "px-4 py-2 rounded-md transition-colors duration-300",
+                                        i18n.language === item.name
+                                        ? "bg-primary text-white"  // выбранный язык
+                                         : "text-foreground/80 hover:text-primary"
+                                    )}> {item.name}</button>
                             ))}               
                         </div>
                     </div>

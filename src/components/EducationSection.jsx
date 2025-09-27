@@ -11,48 +11,50 @@ import { Room5 } from "./Room5.jsx";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import "../i18n";
+import { useTranslation } from "react-i18next";
 
- 
+
+const MemoRoom5 = React.memo(Room5);
+const MemoAvatarEducation = React.memo(AvatarEducation);
+
 const education = [
     {
         id: 1,
-        title: "Master's degree in Computer Science",
-        location: "Holon Institute of Technology",
-        description: "Enrolled in a master's program to deepen knowledge in computer science and explore research opportunities.",
+        title: "masterDegree",
+        location: "holonInstitute",
+        description: "masterDescription",
         date: "2025 - 2027",
-        buttonText: "Download Certificate",
+        buttonText: "downloadCertificate",
         demoUrl: "#",
         icon: GraduationCap,
         color:"text-white-800" 
     },{
         id: 2,
-        title: "Bachelor's degree in Computer Science",
-        location: "Holon Institute of Technology",
-        description: "Graduated with a final GPA of 85+, having learned core software development principles and collaborated on real-world projects during the final year.",
+        title: "bachelorDegree",
+        location: "holonInstitute",
+        description: "bachelorDescription",
         date: "2022 - 2025",
-        buttonText: "Download Certificate",
+        buttonText: "downloadCertificate",
         demoUrl: bachelor,
         icon: GraduationCap,
         color:"text-white-800" 
     },{
         id: 3,
-        title: "Boarding School",
-        location: " Ort Yad Leibovitz & Naale Program",
-        description: "Outstanding student in the Systems Planning and Programming major .Graduated with honors (GPA: 104)",
+        title: "bordingSchool",
+        location: "ortSchool",
+        description: "ortDescription",
         date: "2015 - 2018",
-        buttonText: "Download Certificate",
+        buttonText: "downloadCertificate",
         demoUrl: bagrut,
         icon: "school",
-         color:"text-white-800"  
+        color:"text-white-800"  
     }
 ]
 export const EducationSection = () => {
+    
+   const {t,i18n} = useTranslation();
 
-    const messageFirst = "Every day I dive deeper into Computer Science 📘"
-    const messageSecond = "AI is my favorite playground for ideas 🤖"
-    const messageThird = "Tech has the power to shape the future ✨"
-    const messageFourth = "I’m also improving my English skills to grow internationally 🌍"
-
+    
   return (
 
  <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-background text-foreground relative">
@@ -67,7 +69,7 @@ export const EducationSection = () => {
 
   <div className="container mx-auto max-w-l z-10 relative">
     <h2 className="text-4xl font-bold mb-8 text-center">
-      My <span className="text-primary"> Education </span>
+        {t("myEducation")} <span className="text-primary">  {t("education")} </span>
     </h2>
   </div>
 
@@ -89,29 +91,29 @@ export const EducationSection = () => {
     <directionalLight position={[5, 5, 5]} />
     <group>
       <group position={[-3.2, -2, 0]} rotation={[0, Math.PI, 0]} scale={[1, 1, 1]}>
-        <Room5 />
+          <MemoRoom5 />
       </group>
       <group position={[-2, -1.2, 0]} scale={[3, 3, 3]}>
-        <AvatarEducation animation={"Typing"} />
+        <MemoAvatarEducation animation="Typing" />
       </group>
     </group>
   </Canvas>
    <div className = "absolute  z-20 top-1/6 left-15 flex space-y-2">
               <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
-              <span className="ml-1 ">{messageThird}</span>
+              <span className="ml-1 "> {t("messageThirdAbout")} </span>
             </div>
             </div>
 
             <div className="absolute top-1/3   z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
                 <div className="message-container absolute top-1/3 right-10">
                   <div className="message message-1 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-                    <span className="ml-1">{messageFirst}</span>
+                    <span className="ml-1"> {t("messageFirstAbout")} </span>
                   </div>
                   <div className="message message-2 bg-white/80 text-glow  backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-                    <span className="ml-3">{messageSecond}</span>
+                    <span className="ml-3"> {t("messageSecondAbout")} </span>
                   </div>
                   <div className="message message-3 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
-                    <span className="ml-3">{messageFourth}</span>
+                    <span className="ml-3"> {t("messageFourthAbout")} </span>
                   </div>
                 </div>
             </div>
