@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
 import { AvatarHero } from "./AvatarHero.jsx";
 import { useControls } from "leva";
+import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
  import "../i18n";
  import { useTranslation } from "react-i18next";
@@ -21,7 +22,12 @@ export const HeroSection = () => {
       <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32"></div>
       <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center relative max-w-[80%] mx-auto gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 space-y-6 items-center relative max-w-[80%] mx-auto gap-2">
+        <img
+            src="./public/projects/photo_.jpg"
+            alt="Avatar"
+            className="md:hidden rounded-full   h-48 w-48 mx-auto md:mx-0  object-cover object-center shadow-lg "
+          />
         <div className="space-y-10  z-20">
           <h1 className="text-3xl md:text-6xl text-center tracking-tight">
             <span className="opacity-0 animate-fade-in"> {t("greeting")}</span>
@@ -53,7 +59,7 @@ export const HeroSection = () => {
           
            
           <Canvas
-      className="min-h-screen opacity-0 z-30 animate-fade-in-delay-3"
+      className="min-h-screen hidden md:flex opacity-0 z-30 animate-fade-in-delay-3"
       camera={{ position: [0, 2, 9], fov: 15 }}
     >
       <ambientLight intensity={1} />
@@ -70,13 +76,13 @@ export const HeroSection = () => {
         <MemoAvatar animation={"Greeting"} />
       </group>
     </Canvas>
-            <div className = "absolute  z-20 top-1/6 left-15 flex space-y-2">
+            <div className = "absolute  hidden md:flex  z-20 top-1/6 left-15 flex space-y-2">
               <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
               <span className="ml-1 "> {t("messageThirdAbout")} </span>
             </div>
             </div>
 
-            <div className="absolute top-1/3   z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
+            <div className="absolute top-1/3  hidden md:flex  z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
                 <div className="message-container absolute top-1/3 right-10">
                   <div className="message message-1 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
                     <span className="ml-1"> {t("messageFirstAbout")}</span>

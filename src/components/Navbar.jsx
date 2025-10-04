@@ -33,7 +33,8 @@ export const Navbar = () =>{
 
   
     const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
+        i18n.changeLanguage(lng); 
+        //setIsLanguageOpen(false);
     }
     const toggleTheme = () =>{
         if(isDarkMode){
@@ -71,87 +72,128 @@ export const Navbar = () =>{
 
         return (
 
-        <nav className ={cn(
-           "fixed w-full z-40 transition-all duration-300",
-             isScrolled ? "py-4 bg-background/80 backdrop-blur-md shadow-xs" : "py-5" ) } >
-                <div className="container flex justify-between items-center mx-auto px-4">
-                   <a 
-                    className="text-xl font-bold text-primary flex items-center" 
-                    href="#hero" 
-                    onClick={() => setIsMenuOpen(false)}>
-                        <span className="relative z-11">
-                            <span className="text-glow text-foreground"> {t("nameYanaNaydenova")}</span> {t("portfolio")}
-                        </span>
-                    </a>    
+       <nav
+      className={cn(
+        "fixed w-full z-60 transition-all duration-300",
+        isScrolled ? "py-4 bg-background/80 backdrop-blur-md shadow-xs" : "py-5"
+      )}
+    >
+      <div className="container flex justify-between items-center mx-auto px-4 sm:px-6 lg:px-8">
+        <a
+          className="text-xl font-bold text-primary flex items-center"
+          href="#hero"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <span className="relative z-11">
+            <span className="text-glow text-foreground">{t("nameYanaNaydenova")}</span> {t("portfolio")}
+          </span>
+        </a>
 
-                    {/*desktop version*/}
-                    <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 z-10">
-                        {navItems.map((item,key) =>(
-                            <a
-                                key={item.key}
-                                href={item.href}
-                                className="text-lg text-foreground/80 hover:text-primary font-bold transition-colors duration-300"
-                            >
-                                {t(item.key)}
-                            </a>
-                        ))}               
-                    </div>
-                    <button className="btn-grad absolute right-0 md:right-4    z-20" onClick={     
-                        () => setIsLanguageOpen(!isLanguageOpen)}>
-                        {isLanguageOpen ? <X size={20} /> : <Languages size={20} />}
+        {/* Desktop version */}
+        <div className="hidden md:flex ">
+
+        <div className="flex items-center  left-1/2 transform -translate-x-1/2 space-x-8 z-10 space-x-6">  
+          {navItems.map((item, key) => (
+            <a
+              key={item.key}
+              href={item.href}
+              className="text-lg text-foreground/80 hover:text-primary font-bold transition-colors duration-300"
+            >
+              {t(item.key)}
+            </a>
+          ))}
+        </div>
+
+          <div className="absolute right-15 flex items-center space-x-4 z-10"> 
+            <button 
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                className="flex items-center space-x-4 text-foreground/80 hover:text-primary"
+              >
+                <Languages size={24} />
+            </button>
+            
+            {isLanguageOpen && (
+          <div className="absolute right-0 top-10 mt-2 w-24 bg-background/95 backdrop-blur-md rounded-md shadow-lg z-20">
+        
+          {languages.map((item, key) => (
+            <button
+              key={key}
+              onClick={() => changeLanguage(item.name)}
+              className={cn(
+                "w-full text-left px-4 py-2 text-sm text-foreground/80 hover:text-primary transition-colors ",
+                i18n.language === item.name
+                  ? "bg-primary text-white"
+                  : ""
+              )}
+            >
+              {item.name}
+            </button>
+          ))}
+        </div>
+        )}
+         </div>
+        </div>
+
+        {/* Mobile menu toggle */}
+        <button
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+          className="md:hidden p-2 text-foreground z-50"
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        >
+          {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+
+        {/* Mobile menu */}
+        <div
+          className={cn(
+            "fixed top-15 right-0 left-0   bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
+            " fixed transition-all duration-300 md:hidden",
+            isMenuOpen ? "fixed opacity-98 pointer-events-auto  " : "opacity-0 pointer-events-none"
+          )}
+        >
+          <div className="flex flex-col space-y-8 text-lg p-4 w-full max-w-xs">
+            {navItems.map((item, key) => (
+              <a
+                key={key}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)} 
+                className= " text-md text-foreground/80 hover:text-primary transition-colors duration-300"
+              >
+                {t(item.key)}
+              </a>
+            ))}
+
+            {/* Language selection in mobile menu */}
+            <div className="mt-6  flex flex-col border-t border-foreground/20 pt-4 flex items-center justify-center">
+              <button 
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                className="flex items-center space-x-4 text-foreground/80 hover:text-primary"
+              >
+                <Languages size={18} />
+                <span>{t("language")}</span>
+              </button>
+              {isLanguageOpen && (
+                <div className="mt-2 flex flex-row space-x-2">
+                  {languages.map((item, key) => (
+                    <button
+                      key={key}
+                      onClick={() => changeLanguage(item.name)}
+                      className={cn(
+                        "px-4 py-2 flex flex-col rounded-md transition-colors duration-300",
+                        i18n.language === item.name
+                          ? "bg-primary text-white"
+                          : "text-foreground/80 hover:text-primary"
+                      )}
+                    >
+                      {item.name}
                     </button>
-                    {/*mobile version*/}
-                    <button  onClick={
-                        () => setIsMenuOpen((prev) => !prev)}
-                        className="md:hidden  p-2 text-foreground z-50"
-                        aria-label= {isMenuOpen ? "Close menu" : "Open menu"}> 
-                        {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                    </button>
-                    
-                    
-
-
-                    {/* <button onClick={toggleTheme} className= {cn(
-                        " btn-grad fixed max-sm:hidden  right-25         ",
-                            "focus:outlin-hidden"
-                    )}
-                    >{isDarkMode ? 
-                       <Sun size={20} />:
-                        <Moon size={20} />}</button> */}
-
-                     {/*menu*/}
-                    <div className={cn(
-                        "fixed inset-0 bg-background/95  backdrop-blur-md z-40 flex flex-col items-center justify-center",
-                        "transition-all duration-300 md:hidden",
-                        isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
-                        )}> 
-
-                        <div className="flex flex-col space-y-8 text-xl ">
-                            {navItems.map((item,key) =>(
-                                <a key={key} href= {item.href} className="text-foreground/80 hover:text-primary transition-colors duration-300"> {item.name}</a>
-                            ))}               
-                        </div>
-                    </div>
-
-                     {/*languages*/}
-                    <div className={cn(
-                        "fixed top-16 right-4 bg-background/95  backdrop-blur-md z-40 flex flex-col items-center justify-center rounded-md",
-                        "transition-all duration-300",
-                        isLanguageOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
-                        )}> 
-
-                        <div className={cn("flex flex-col space-y-2 text-xl p-4", languages.code === i18n.language ? "bg-primary text-white" : "text-foreground/80 hover:text-primary transition-colors duration-300")}>
-                            {languages.map((item,key) =>(
-                                <button key={key} href= {item.href} onClick={() => changeLanguage(item.name)}  className={cn(
-                                    "px-4 py-2 rounded-md transition-colors duration-300",
-                                        i18n.language === item.name
-                                        ? "bg-primary text-white"  // выбранный язык
-                                         : "text-foreground/80 hover:text-primary"
-                                    )}> {item.name}</button>
-                            ))}               
-                        </div>
-                    </div>
-                     
+                  ))}
                 </div>
-        </nav>)
-}
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};

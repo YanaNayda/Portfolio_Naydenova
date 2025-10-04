@@ -59,21 +59,28 @@ export const SkillsSection = () => {
     );
     
      return ( 
-        <section id="skills" className="relative py-20 px-4 bg-secondary/30">
-            <div className="container max-w-6xl mx-auto">
-                <h2 className="text-4xl font-bold mb-8 text-center">
-                   {t("my")} <span className="text-primary"> {t("skills")} </span>
+        
+        <section id="skills" className="relative py-20 px-4 -mb-10">
+            <div className="blob blob--teal hidden md:flex absolute  left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70  "></div>
+               <div className="blob blob--teal hidden md:flex absolute  right-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70  "></div>
+            <div className="blob blob--yellow absolute right-10 top-[50px] w-56 h-56 opacity-50   "></div>
+            <div className="blob blob--yellow absolute left-10 top-[50px] w-56 h-56 opacity-50   "></div>
+            <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70  "></div>
+
+            <div className="container max-w-6xl mx-auto relative z-10">
+                <h2 className="text-4xl font-bold mb-8 text-center z-40">
+                   {t("my")} <span className="text-primary  z-30"> {t("skills")} </span>
                 </h2>
 
-                <div className="flex justify-center mb-12 gap-4 flex-wrap">
+                <div className="flex justify-center mb-12 gap-4 flex-wrap  z-10">
                     {categories.map(({ key, filter }) => (
                         <button
                             key={key}
                             className={cn(
-                                "px-5 py-2 rounded-lg border hover:bg-primary/10 transition-colors duration-300",
+                                "px-5 py-2 rounded-lg border hover:bg-primary/10 transition-colors duration-300  z-10 ",
                                 activeCategory === filter
-                                ? "bg-primary/10 border-primary text-primary"
-                                : "border-muted-foreground text-primary"
+                                ? "bg-primary/10 border-white  z-40 text-primary"
+                                : "border-muted-foreground  z-40 text-white"
                             )}
                             onClick={() => setActiveCategory(filter)}
                         >
@@ -83,22 +90,16 @@ export const SkillsSection = () => {
                 </div>
 
                  
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-                      <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70"></div>
-                        <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
-                        <div className="blob blob--purple absolute left-40 top-[100px] w-48 h-48 opacity-60"></div>
-                        <div className="blob blob--yellow absolute right-10 top-[50px] w-56 h-56 opacity-50"></div>
-                        <div className="blob blob--pink absolute top-[250px] left-0 w-64 h-64"></div>
-                        <div className="blob blob--blue absolute top-[350px] right-[200px] w-64 h-64"></div>
-                        <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4 md:gap-6 lg:gap-8 items-center">
+                      
 
                         {filteredSkils.map((skill, key) => (
                             <div
                                 key={key}
-                                className="bg-card p-8 rounded-lg shadow-lg   card-hover z-20"
+                                className="bg-card sm:p-4 md:p-6 lg:p-8 p-4 rounded-lg shadow-lg  card-hover z-20"
                             >
-                                <h3 className="text-2xl font-semibold mb-2 text-center">{skill.name}</h3>
-                                <p className="text-m text-primary mb-2 text-center">{t( skill.category)}</p> 
+                                <h3 className="text-xl sm:text-2xl md:text-2xl  font-semibold mb-2 text-center">{skill.name}</h3>
+                                <p className="text-m text-white mb-2 text-center">{t( skill.category)}</p> 
                                  
                                 
                             </div>

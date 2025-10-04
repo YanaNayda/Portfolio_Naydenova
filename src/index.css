@@ -1,5 +1,6 @@
 @import "tailwindcss";
-
+@import "swiper/css";
+@import "swiper/css/pagination";
 
 @theme{
    --color-border: hsl(var(--border));
@@ -114,7 +115,7 @@
    --background:263 100% 2.1%;
     --foreground:213 31% 91%;
     --card:222 47% 8%;
-    --primary:265 95% 37%;
+    --primary:236 63% 60%;
     --primary-foreground: 331 31% 91%;
     --border:217 33% 20%
   }
@@ -138,7 +139,6 @@
   );
   animation: var(--animate-float), spin 30s linear infinite;
 }
-
 .blob--teal {
   width: 200px;
   height: 200px;
@@ -159,6 +159,17 @@
   animation: var(--animate-float), spin 20s linear infinite;
 }
 
+
+.mySwiper .swiper-pagination-bullet {
+  bottom:  20px;
+  background-color: #fff;
+}
+.swiper-slide-prev,
+.swiper-slide-next {
+  transform: scale(0.85);
+  opacity: 0.5;
+  filter: blur(2px);
+}
 
 .btn-grad {background-image: linear-gradient(to right, #9b2b4f 0%, #1D2671  60%, #4f2280  100%)}
 .btn-grad {
