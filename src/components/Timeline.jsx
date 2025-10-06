@@ -33,7 +33,7 @@ export default function Timeline({ defaultColor = "text-primary", education = []
               : element.icon;
 
           return (
-            <div key={element.id} className="flex z-20 items-start w-full">
+            <div key={element.id} className="flex z-20 items-start w-full ">
               <div className="w-1/4 text-right pr-4 text-gray-400">{element.date}</div>
               <div className="relative flex flex-col items-center w-16">
                 <div className="z-10 flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white">
@@ -41,7 +41,7 @@ export default function Timeline({ defaultColor = "text-primary", education = []
                 </div>
               </div>
               <div className="flex-1 z-20 ml-6">
-                <div className="border border-gray-600 rounded-lg px-6 py-4 bg-gray-800 shadow-md">
+                <div className="  z-40  rounded-lg px-6 py-4 bg-card  shadow-md">
                   <div className="text-xl font-semibold mb-1">{t(element.title)}</div>
                   <div className="text-sm text-gray-300 mb-2">{t(element.location)}</div>
                   <div className="text-sm text-gray-200 mb-4">{t(element.description)}</div>
@@ -70,7 +70,7 @@ export default function Timeline({ defaultColor = "text-primary", education = []
           spaceBetween={20}
           slidesPerView={1}
           pagination={{ clickable: true }}
-          style={{ paddingBottom: '40px' }} // Add some bottom padding for pagination
+          style={{ paddingBottom: '40px'  }} // Add some bottom padding for pagination
         
 >
           {education.map((element) => {
@@ -83,7 +83,7 @@ export default function Timeline({ defaultColor = "text-primary", education = []
 
             return (
               <SwiperSlide key={element.id}>
-                <div className="bg-gray-800 border border-gray-600 rounded-lg p-6 shadow-md text-center">
+                <div className="bg-card  bg-card rounded-lg p-6 shadow-md text-center">
                   <div className="flex flex-col items-center gap-3 mb-3">
                     <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white">
                       <IconComponent className="w-6 h-6" />

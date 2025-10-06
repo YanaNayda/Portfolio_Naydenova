@@ -13,7 +13,7 @@ export const AboutMeSection = () => {
         className="py-24 px-4 sm:px-10  lg:px-20 relative">
         {" "}
         <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-8">
+            <h2 className="text-3xl sm:text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-16 ">
                  {t("about")}
                 <span className="text-primary"> {t("me")}</span>
             </h2>
@@ -57,7 +57,7 @@ export const AboutMeSection = () => {
                 </div>
 
                 <div className="grid grid-cols-1 gap-6">
-                    <div className="gradient-border p-6 card-hover  z-40">
+                    <div className="  p-6 card-hover bg-card z-40">
                             <div className="flex items-start gap-4 ">
                                 <div className ="p-3 rounded-full bg-primary/10">
                                     <Code className="h-6 w-6 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-8 lg:w-8 text-primary" />
@@ -71,7 +71,7 @@ export const AboutMeSection = () => {
                         </div>
                     </div>
 
-                    <div className="gradient-border p-6 card-hover  z-40">
+                    <div className="  p-6 card-hover bg-card  z-40">
                         <div className="flex items-start gap-4">
                             <div className ="p-3 rounded-full bg-primary/10">
                                 <User className="h-6 w-6 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-8 lg:w-8 text-primary" />
@@ -85,7 +85,7 @@ export const AboutMeSection = () => {
 
                         </div>
                     </div>
-                    <div className="gradient-border p-6 card-hover  z-40">
+                    <div className="  p-6 card-hover bg-card z-40">
                         <div className="flex items-start gap-4">
                             <div className ="p-3 rounded-full bg-primary/10">
                                 <TrendingUp className="h-6 w-6 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-8 lg:w-8 text-primary" />

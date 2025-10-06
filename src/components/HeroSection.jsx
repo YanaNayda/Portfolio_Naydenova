@@ -8,6 +8,7 @@ import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
  import "../i18n";
  import { useTranslation } from "react-i18next";
+import { GradientText } from '@/components/ui/shadcn-io/gradient-text';
 
   const MemoAvatar = React.memo(AvatarHero);
 export const HeroSection = () => {  
@@ -21,26 +22,35 @@ export const HeroSection = () => {
     <section id="hero" className="relative min-h-screen flex items-center">
       <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32"></div>
       <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
+      <div className="blob blob--teal h-[100px] absolute right-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 space-y-6 items-center relative max-w-[80%] mx-auto gap-2">
-        <img
-            src="./public/projects/photo_.jpg"
+      
+        <div className="space-y-10 item-center  z-20">
+          <img
+            src="./public/projects/photo_avatar.png"
             alt="Avatar"
-            className="md:hidden rounded-full   h-48 w-48 mx-auto md:mx-0  object-cover object-center shadow-lg "
-          />
-        <div className="space-y-10  z-20">
-          <h1 className="text-3xl md:text-6xl text-center tracking-tight">
-            <span className="opacity-0 animate-fade-in"> {t("greeting")}</span>
-            <span className="text-primary text-glow opacity-0 animate-fade-in-delay-1"> {t("name")}</span>
-            <span className="text-primary text-glow opacity-0 animate-fade-in-delay-2"> {t("surname")}</span>
+            className="
+                 
+                mx-auto object-cover object-center shadow-lg
+                md:h-52 w-52        
+                sm:h-60 sm:w-60 
+                md:h-68 md:w-68   
+                lg:h-74 lg:w-74  
+                xl:h-82 xl:w-82  "/>
+
+          <h1 className="text-4xl md:text-6xl text-center tracking-tight">
+            <span className="opacity-0 animate-fade-in"> {t("greeting")} </span>
+            <GradientText text= {t("nameYanaNaydenova")}  gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)" className="text-primary    opacity-0 animate-fade-in-delay-1"> </GradientText>
+            
           </h1>
 
           <p className="text-lg md:text-3xl text-muted-foreground max-w-3xl text-center mx-auto opacity-0 animate-fade-in-delay-2">
             {t("textAbout")}
           </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
+          <div className="pt-6 opacity-0 animate-fade-in-delay-4 h-20 ">
+            <a href="#projects" className="button-hero">
               {t("viewWork")}
             </a>
           </div>
@@ -49,8 +59,7 @@ export const HeroSection = () => {
         <div className="relative h-full">
           <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2  z-0 w-72 h-32 opacity-70"></div>
           <div className="blob blob--teal h-[100px] absolute left-20 top-[200px]  z-0 -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
-          <div className="blob blob--purple absolute left-40 top-[100px] z-0 w-48 h-48 opacity-60"></div>
-          <div className="blob blob--yellow absolute right-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
+          <div className="blob blob--pink absolute right-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
           <div className="blob blob--pink absolute top-[250px] z-0 left-0 w-64 h-64"></div>
           <div className="blob blob--blue absolute top-[350px] right-[200px] z-0 w-64 h-64"></div>
           <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 z-0 w-64 opacity-70"></div>

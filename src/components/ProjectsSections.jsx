@@ -11,6 +11,7 @@ import 'swiper/css/navigation';
 
 // import required modules
 import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { CardBody, CardContainer, CardItem } from "@/components/ui/shadcn-io/3d-card";
  
 import "swiper/css/effect-coverflow";
 
@@ -49,7 +50,7 @@ export  const ProjectsSections = () =>{
    const {t ,i18n} = useTranslation();
     return( 
 
-    <section className="  text-foreground relative min-h-screen bg-secondary">
+    <section id="projects" className="  text-foreground relative min-h-screen bg-secondary">
       <div className=" relative z-20">
         <div className="container mx-auto px-4 sm:px-6 text-center">
             <h2 className="text-3xl md:text-5xl font-bold mb-4 max-w-7xl mx-auto">
@@ -60,10 +61,22 @@ export  const ProjectsSections = () =>{
              </p>
         </div>
 
-        {/* 📌 Desktop grid */}
+        {/*Desktop*/}
         <div className="hidden md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 py-10 px-4 sm:px-6 z-10 max-w-6xl item-center mx-auto">
+
+          <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2  z-0 w-72 h-32 opacity-70"></div>
+           <div className="blob blob--teal absolute right-0 top-0 z-0 w-72 h-32 opacity-70"></div>
+          <div className="blob blob--teal h-[100px] absolute left-20 top-[200px]  z-0 -translate-y-1/2 -translate-x-1/2 w-64 opacity-70"></div>
+          <div className="blob blob--pink absolute right-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
+           <div className="blob blob--pink absolute left-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
+          <div className="blob blob--blue absolute top-[350px] left-[200px] z-0 w-64 h-64"></div>
+          <div className="blob blob--blue h-[100px] absolute right-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
+        
+        
           {projects.map((project) => (
-            <div key={project.id} className="bg-card rounded-lg shadow-xs overflow-hidden card-hover">
+             
+            <div key={project.id} className="bg-card rounded-lg shadow-xs overflow-hidden z-20 card-hover">
+              
               <div className="h-48 overflow-hidden">
                 <img src={project.imageUrl} alt={project.name} className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" />
               </div>

@@ -60,13 +60,13 @@ export const SkillsSection = () => {
     
      return ( 
         
-        <section id="skills" className="relative py-20 px-4 -mb-10">
-            <div className="blob blob--teal hidden md:flex absolute  left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70  "></div>
-               <div className="blob blob--teal hidden md:flex absolute  right-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32 opacity-70  "></div>
-            <div className="blob blob--yellow absolute right-10 top-[50px] w-56 h-56 opacity-50   "></div>
-            <div className="blob blob--yellow absolute left-10 top-[50px] w-56 h-56 opacity-50   "></div>
-            <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 w-64 opacity-70  "></div>
-
+        <section id="skills"   className="relative py-20 px-4 min-h-screen ">
+            <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2  z-0 w-72 h-32 opacity-70"></div>
+          <div className="blob blob--pink absolute right-10 top-[50px] z-0 w-56 h-56 opacity-50"></div>
+          <div className="blob blob--pink absolute top-[250px] z-0 left-0 w-64 h-64"></div>
+          <div className="blob blob--teal h-[200px] absolute left-20 top-[250px] -translate-y-1/2 -translate-x-1/2 z-0 w-64 opacity-70"></div>
+          
+        
             <div className="container max-w-6xl mx-auto relative z-10">
                 <h2 className="text-4xl font-bold mb-8 text-center z-40">
                    {t("my")} <span className="text-primary  z-30"> {t("skills")} </span>
@@ -77,7 +77,7 @@ export const SkillsSection = () => {
                         <button
                             key={key}
                             className={cn(
-                                "px-5 py-2 rounded-lg border hover:bg-primary/10 transition-colors duration-300  z-10 ",
+                                "px-5 py-2 rounded-lg border     duration-500  z-10 ",
                                 activeCategory === filter
                                 ? "bg-primary/10 border-white  z-40 text-primary"
                                 : "border-muted-foreground  z-40 text-white"
@@ -108,6 +108,7 @@ export const SkillsSection = () => {
                 </div>
                  
             </div>
+            <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-background pointer-events-none"></div>
         </section>
     )
 }
