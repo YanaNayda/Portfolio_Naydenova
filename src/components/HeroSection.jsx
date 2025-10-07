@@ -28,7 +28,7 @@ export const HeroSection = () => {
       
         <div className="space-y-10 item-center  z-20">
           <img
-            src="./public/projects/photo_avatar.png"
+            src="./public/projects/photo_blue.png"
             alt="Avatar"
             className="
                  
