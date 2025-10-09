@@ -3,6 +3,7 @@ import Timeline from "./Timeline";
 import {GraduationCap ,School,  BookOpen } from "lucide-react"
 import bagrut from "../documents/bagrut.pdf"
 import bachelor from "../documents/bachelor.pdf"
+import master from "../documents/master.pdf"
 import { AvatarEducation } from "./AvatarEducation.jsx"; 
 import { useControls } from "leva";
 import { Canvas } from "@react-three/fiber";
@@ -25,7 +26,7 @@ const education = [
         description: "masterDescription",
         date: "2025 - 2027",
         buttonText: "downloadCertificate",
-        demoUrl: "#",
+        demoUrl:  master,
         icon: GraduationCap,
         color:"text-white-800" 
     },{
@@ -74,9 +75,17 @@ export const EducationSection = () => {
 
 
   <div className="container mx-auto max-w-l z-20 relative">
-    <h2 className="text-4xl font-bold mb-8 text-center z-20">
-        {t("myEducation")} <span className="text-primary">  {t("education")} </span>
-    </h2>
+   <h2 className="text-4xl font-bold mb-8 text-center z-20">
+  {i18n.language === "he" ? (
+    <>
+      <span className="text-primary">{t("education")}</span> {t("myEducation")}
+    </>
+  ) : (
+    <>
+      {t("myEducation")} <span className="text-primary">{t("education")}</span>
+    </>
+  )}
+</h2>
   </div>
 
   <div className="container mx-auto py-2 grid grid-cols-1 lg:grid-cols-3 text-center relative z-10">

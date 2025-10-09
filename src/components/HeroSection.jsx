@@ -19,12 +19,12 @@ export const HeroSection = () => {
  
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center">
+    <section id="hero" className="relative min-h-screen flex items-center top-20">
       <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32"></div>
       <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
       <div className="blob blob--teal h-[100px] absolute right-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 space-y-6 items-center relative max-w-[80%] mx-auto gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 space-y-6 items-center relative max-w-[80%] mx-auto gap-2">
       
         <div className="space-y-10 item-center  z-20">
           <img
@@ -40,16 +40,41 @@ export const HeroSection = () => {
                 xl:h-82 xl:w-82  "/>
 
           <h1 className="text-4xl md:text-6xl text-center tracking-tight">
-            <span className="opacity-0 animate-fade-in"> {t("greeting")} </span>
-            <GradientText text= {t("nameYanaNaydenova")}  gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)" className="text-primary    opacity-0 animate-fade-in-delay-1"> </GradientText>
-            
-          </h1>
+  {i18n.language === "he" ? (
+    <>
+      <GradientText
+        text={t("nameYanaNaydenova")}
+        gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
+        className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
+      />
+      <span className="opacity-0 animate-fade-in inline-block">
+          &nbsp;{t("greeting")}
+      </span>
+    </>
+  ) : (
+    <>
+      <span className="opacity-0 animate-fade-in inline-block">
+        {" "}
+        {t("greeting")}
+      </span>
+       <span className="opacity-0 animate-fade-in inline-block">
+        &nbsp;
+        {" "}
+      </span>
+      <GradientText
+        text={t("nameYanaNaydenova")}
+        gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
+        className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
+      />
+    </>
+  )}
+</h1>
 
           <p className="text-lg md:text-3xl text-muted-foreground max-w-3xl text-center mx-auto opacity-0 animate-fade-in-delay-2">
             {t("textAbout")}
           </p>
 
-          <div className="pt-6 opacity-0 animate-fade-in-delay-4 h-20 ">
+          <div className=" md:text-lg  sm:text-md pt-6 opacity-0 animate-fade-in-delay-4 h-18 ">
             <a href="#projects" className="button-hero">
               {t("viewWork")}
             </a>
@@ -68,7 +93,7 @@ export const HeroSection = () => {
           
            
           <Canvas
-      className="min-h-screen hidden md:flex opacity-0 z-30 animate-fade-in-delay-3"
+        className="min-h-screen hidden lg:flex opacity-0 z-30 animate-fade-in-delay-3"
       camera={{ position: [0, 2, 9], fov: 15 }}
     >
       <ambientLight intensity={1} />
@@ -85,13 +110,13 @@ export const HeroSection = () => {
         <MemoAvatar animation={"Greeting"} />
       </group>
     </Canvas>
-            <div className = "absolute  hidden md:flex  z-20 top-1/6 left-15 flex space-y-2">
+            <div className = "absolute  hidden lg:flex  z-20 top-1/6 left-15 flex space-y-2">
               <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
               <span className="ml-1 "> {t("messageThirdAbout")} </span>
             </div>
             </div>
 
-            <div className="absolute top-1/3  hidden md:flex  z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
+            <div className="absolute top-1/3 hidden lg:flex  z-20 opacity-5 animate-fade-in-delay-4  right-1 flex flex-col space-y-3">
                 <div className="message-container absolute top-1/3 right-10">
                   <div className="message message-1 bg-white/80  text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
                     <span className="ml-1"> {t("messageFirstAbout")}</span>

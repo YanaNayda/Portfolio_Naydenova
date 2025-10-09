@@ -185,30 +185,30 @@ export const ContactSection = () => {
      
     <div className="lg:w-1/3 sm:w-full   w-full  relative">
      <div className="absolute inset-0 -z-10 -left-32 flex flex-col items-center z-[-1] space-y-6">
-    <div className="blob blob--teal z-20w-72 h-32 opacity-70"></div>
-    <div className="blob blob--teal z-20w-64 h-64 opacity-70"></div>
-    <div className="blob blob--purple z-20 w-48 h-48 opacity-60"></div>
-    <div className="blob blob--yellow z-20 w-56 h-56 opacity-50"></div>
-    <div className="blob blob--pink  z-20 w-64 h-64"></div>
-    <div className="blob blob--blue z-20 w-64 h-64"></div>
-    <div className="blob blob--teal z-20 w-64 h-64 opacity-70"></div>
+    <div className="blob blob--teal hidden md:flex z-20w-72 h-32 opacity-70"></div>
+    <div className="blob blob--teal  hidden md:flex z-20w-64 h-64 opacity-70"></div>
+    <div className="blob blob--purple hidden md:flex z-20 w-48 h-48 opacity-60"></div>
+    <div className="blob blob--yellow  hidden md:flex z-20 w-56 h-56 opacity-50"></div>
+    <div className="blob blob--pink hidden md:flex  z-20 w-64 h-64"></div>
+    <div className="blob blob--blue hidden md:flex z-20 w-64 h-64"></div>
+    <div className="blob blob--teal hidden md:flex z-20 w-64 h-64 opacity-70"></div>
   </div>
   <div className="absolute z-20 right-24 sm: right-0  ">
   <div className="absolute top-1/5 z-20 opacity-100 animate-fade-in-delay-4 flex flex-col space-y-3">
     <div className="message-container">
-      <div className="message message-1 bg-white/80 text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+      <div className="message message-1 hidden lg:flex bg-white/80 text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
         <span className="ml-1">{t("contactSection.messageFirstContact")}</span>
       </div>
-      <div className="message message-2 bg-white/80 text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+      <div className="message message-2 hidden lg:flex bg-white/80 text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
         <span className="ml-3">{t("contactSection.messageSecondContact")}</span>
       </div>
-      <div className="message message-3 bg-white/80 text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
+      <div className="message message-3hidden lg:flexbg-white/80 text-glow backdrop-blur-md text-black px-3 py-2 rounded-2xl shadow-lg">
         <span className="ml-3">{t("contactSection.messageThirdContact")}</span>
       </div>
     </div>
   </div>
 </div>
-      <Canvas className="w-full h-full relative z-10" camera={{ position: [0, 2, 6], fov: 45 }}>
+      <Canvas className=" w-full h-full relative z-10 hidden lg:flex " camera={{ position: [0, 2, 6], fov: 45 }}>
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} />
         <group position-y={-2}  scale={[2.5, 2.5, 2.5]}>

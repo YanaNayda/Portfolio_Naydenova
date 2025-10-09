@@ -61,7 +61,7 @@ export default function Timeline({ defaultColor = "text-primary", education = []
         })}
       </div>
 
-      {/* ✅ Mobile  (Swiper) */}
+    
       <div className="md:hidden relative z-20">
        <Swiper
          modules={[Pagination]}

@@ -2,6 +2,9 @@
 @import "swiper/css";
 @import "swiper/css/pagination";
 
+
+ 
+
 @theme{
    --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -79,6 +82,7 @@
 
 }
 
+ 
 @keyframes fade {
  
   0% {
@@ -100,7 +104,7 @@
   }
 }
 }
-
+ 
 @layer base {
   :root{
     --background:263 100% 2.1%
@@ -115,12 +119,19 @@
    --background:228  19% 5%;
     --foreground:213 31% 91%;
     --card:222 47% 8%;
-    --primary: 249, 76%, 57%;
+    --primary:253, 76%, 66%;
     --primary-foreground: 331 31% 91%;
     --border:239 9% 41%
   }
   
 }
+
+
+.custom-cursor-element {
+  cursor: url('/3dcursor2.svg'), auto;
+}
+
+
 .blob {
   position: absolute;
   border-radius: var(--border-radius);
@@ -255,6 +266,15 @@ body{
   @media(width>= 1536px){
     max-width: 1536px;  
   }
+ @media (max-width: 1368px) {
+  .navbar-desktop { display: none !important; }
+  .navbar-mobile { display: flex !important; }
+}
+
+@media (min-width: 1369px) {
+  .navbar-desktop { display: flex !important; }
+  .navbar-mobile { display: none !important; }
+}
 }
  
  @utility text-glow {
@@ -263,7 +283,7 @@ body{
  }
 
 @utility card-hover {
-  @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+  @apply transition-transform duration-300 hover:scale-[1.15] hover:shadow-lg;
 }
 
 @utility gradient-border {
@@ -282,11 +302,15 @@ body{
 }
 
 @utility button-hero{
-  @apply px-15 py-3 rounded-full bg-primary text-primary-foreground font-medium text-xl
+  @apply  px-4 py-1.5 text-sm              /* базовый размер для мобильных */
+    sm:px-5 sm:py-2 sm:text-sm       /* ≥ 640px */
+    md:px-6 md:py-2.5 md:text-base   /* ≥ 768px */
+    lg:px-7 lg:py-3 lg:text-lg       /* ≥ 1024px */
+    xl:px-8 xl:py-3.5 xl:text-xl     /* ≥ 1280px */
+    rounded-full bg-primary text-primary-foreground font-medium
     transition-transform duration-300 
-    hover:shadow-[0_0_12px_rgba(84,0,219,0.94)]
-    hover:scale-105 
-    active:scale-95;
+    hover:shadow-[0_0_8px_rgba(84,0,219,0.8)]
+    hover:scale-105 active:scale-95;
 }
 
 @utility star{

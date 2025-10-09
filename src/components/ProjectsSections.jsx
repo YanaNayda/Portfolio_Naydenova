@@ -30,7 +30,7 @@ const projects = [
         id: 2,
         name: "PawPal",
         description: "pawpalDescription",
-        imageUrl: "public/projects/pawpal.jpg",
+        imageUrl: "public/projects/paw_pal_logo.png",
         tags: ["Node.js", "Express", "MongoDB", "React Native", "FireBase", "GitHub"],
         githubUrl: "https://github.com/YanaNayda/PawPal-client"
     },

@@ -69,8 +69,16 @@ export const SkillsSection = () => {
         
             <div className="container max-w-6xl mx-auto relative z-10">
                 <h2 className="text-4xl font-bold mb-8 text-center z-40">
-                   {t("my")} <span className="text-primary  z-30"> {t("skills")} </span>
-                </h2>
+  {i18n.language === "he" ? (
+    <>
+      <span className="text-primary z-30">{t("skills")}</span> {t("my")}
+    </>
+  ) : (
+    <>
+      {t("my")} <span className="text-primary z-30">{t("skills")}</span>
+    </>
+  )}
+</h2>
 
                 <div className="flex justify-center mb-12 gap-4 flex-wrap  z-10">
                     {categories.map(({ key, filter }) => (
