@@ -32,11 +32,11 @@ export const AboutMeSection = () => {
         >
           {isHebrew ? (
             <>
-              <span className="text-primary">{t("me")}</span> {t("aboutMe")}
+              <span className="text-primary">{t("me")}</span> {t("about")}
             </>
           ) : (
             <>
-              {t("aboutMe")} <span className="text-primary">{t("me")}</span>
+              {t("about")} <span className="text-primary">{t("me")}</span>
             </>
           )}
         </h2>

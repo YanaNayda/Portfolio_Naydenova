@@ -12,6 +12,8 @@ import { Room5 } from "./Room5.jsx";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import "../i18n";
+import { t } from "i18next";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { CursorFollow, CursorProvider } from '@/components/ui/shadcn-io/animated-cursor';
 
@@ -58,7 +60,25 @@ export const EducationSection = () => {
   const [message, setMessage] = useState(t("messageThirdAbout"));
  const [clicked, setClicked] = useState(0);
 
-    
+    useEffect(() => {
+  if (clicked === 0) setMessage(t("messageThirdAbout"));
+  else if (clicked === 1) setMessage(t("messageClicked"));
+  else if (clicked === 2) {
+    setMessage(
+      <>
+        {t("messageEducationToContact")}&nbsp;
+        <br />
+        <a
+          href="#contact"
+          className="text-primary hover:text-primary/80 transition"
+          onClick={() => setClicked(0)}
+        >
+          {t("contactSection.contactInformation")}
+        </a>
+      </>
+    );
+  }
+}, [i18n.language, clicked, t]);
   return (
 
  <section id="education" className="py-20 px-4 sm:px-6 lg:px-8 bg-background text-foreground relative">

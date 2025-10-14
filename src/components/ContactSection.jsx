@@ -135,52 +135,82 @@ export const ContactSection = () => {
       <div className="blob blob--teal w-64 h-64 opacity-70"></div>
     </div>
   </div>
-    <div className="lg:w-2/3 w-full bg-card px-8 py-10 rounded-lg shadow-xs">
-      <h3 className="text-2xl font-semibold mb-6"> {t("contactSection.sendMessage")} </h3>
-      <form className="space-y-6" onSubmit={onSubmit  }>
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium mb-2">{t("contactSection.yourName")} </label>
-          <input 
-            type="text" 
-            id="name"
-            name="name"
-            required
-            className="w-full px-4 py-3 border rounded bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-            placeholder= {t("contactSection.placeholderName")}
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2">{t("contactSection.yourEmail")}</label>
-          <input 
-            type="text" 
-            id="email"
-            name="email"
-            required
-            className="w-full px-4 py-3 border rounded bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-            placeholder= {t("contactSection.placeholderEmail")}
-          />
-        </div>
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-2">{t("contactSection.yourMessage")}</label>
-          <textarea 
-            id="message"
-            name="message"
-            required
-            rows="10"
-            className="w-full px-4 py-3 border rounded bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none h-32"
-            placeholder= {t("contactSection.placeholderMessage")}
-          />
-        </div>
-        <button type="submit" className="cosmic-button w-full flex items-center justify-center gap-2" >
-          {t("contactSection.sendMessage")}
-        </button>
-        {isSent && (
-          <p className="mt-4 text-center text-green-600 font-semibold">
-            {t("contactSection.messageSent")}
-          </p>
-        )}
-      </form>
+   <div
+  className={cn(
+    "lg:w-2/3 w-full bg-card px-8 py-10 rounded-lg shadow-xs",
+    i18n.language === "he" ? "text-right" : "text-left"
+  )}
+  dir={i18n.language === "he" ? "rtl" : "ltr"}
+>
+  <h3 className="text-2xl font-semibold mb-6 text-center">
+    {t("contactSection.sendMessage")}
+  </h3>
+  <form className="space-y-6" onSubmit={onSubmit}>
+    <div>
+      <label
+        htmlFor="name"
+        className="block text-sm font-medium mb-2"
+      >
+        {t("contactSection.yourName")}
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        className="w-full px-4 py-3 border rounded bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+        placeholder={t("contactSection.placeholderName")}
+      />
     </div>
+
+    <div>
+      <label
+        htmlFor="email"
+        className="block text-sm font-medium mb-2"
+      >
+        {t("contactSection.yourEmail")}
+      </label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        required
+        className="w-full px-4 py-3 border rounded bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+        placeholder={t("contactSection.placeholderEmail")}
+      />
+    </div>
+
+    <div>
+      <label
+        htmlFor="message"
+        className="block text-sm font-medium mb-2"
+      >
+        {t("contactSection.yourMessage")}
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        rows="10"
+        className="w-full px-4 py-3 border rounded bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none h-32"
+        placeholder={t("contactSection.placeholderMessage")}
+      />
+    </div>
+
+    <button
+      type="submit"
+      className="cosmic-button w-full flex items-center justify-center gap-2"
+    >
+      {t("contactSection.sendMessage")}
+    </button>
+
+    {isSent && (
+      <p className="mt-4 text-center text-green-600 font-semibold">
+        {t("contactSection.messageSent")}
+      </p>
+    )}
+  </form>
+</div>
 
      
     <div className="lg:w-1/3 sm:w-full   w-full  relative">

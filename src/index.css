@@ -107,12 +107,12 @@
  
 @layer base {
   :root{
-    --background:263 100% 2.1%
-    --foreground:263 100% 2.1%
-    --card:0 0% 100%;
-    --primary:0 65% 60%;
-    --primary-foreground: 210 40% 98%;
-    --border:214 32% 91%
+   --background:228  19% 5%;
+    --foreground:213 31% 91%;
+    --card:222 47% 8%;
+    --primary:253, 76%, 66%;
+    --primary-foreground: 331 31% 91%;
+    --border:239 9% 41%
 
   }
   .dark{

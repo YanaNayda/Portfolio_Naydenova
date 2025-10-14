@@ -41,7 +41,7 @@ export default function Timeline({ defaultColor = "text-primary", education = []
                 </div>
               </div>
               <div className="flex-1 z-20 ml-6">
-                <div className="  z-40  rounded-lg px-6 py-4 bg-card  shadow-md">
+                <div className="  z-40  rounded-lg px-6 py-4 bg-card  shadow-md"> 
                   <div className="text-xl font-semibold mb-1">{t(element.title)}</div>
                   <div className="text-sm text-gray-300 mb-2">{t(element.location)}</div>
                   <div className="text-sm text-gray-200 mb-4">{t(element.description)}</div>
