@@ -22,7 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?gi
-*.glb
 *.vs
 .env
 
