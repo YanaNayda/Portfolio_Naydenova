@@ -133,7 +133,7 @@ export const EducationSection = () => {
         </CursorFollow>
       </CursorProvider>
   
-  <Canvas className="hidden md:flex relative z-10" 
+  <Canvas className="hidden md:flex relative z-20" 
   camera={{ position: [-12,5,11], fov: 38 }}
   onClick={()=>{
     setClicked((prev) => {
@@ -169,7 +169,7 @@ export const EducationSection = () => {
     <directionalLight position={[5, 5, 5]} />
     <group>
       <group position={[-3.2, -2, 0]} rotation={[0, Math.PI, 0]} scale={[1, 1, 1]}>
-          <MemoRoom6 />
+           <MemoRoom6 />    
       </group>
       <group position={[-2, -1.2, 0]} scale={[3, 3, 3]}>
         <MemoAvatarEducation animation="Typing" />

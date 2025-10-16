@@ -107,7 +107,7 @@ export  const ProjectsSections = () =>{
             centeredSlides={true}        
             slidesPerView={1.4}  
             spaceBetween={20}
-            loopFillGroupWithBlank={true}
+             
             coverflowEffect={{
               rotate: 0,
               stretch: 0,

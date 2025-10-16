@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Send } from "lucide
 import {cn} from "@/lib/utils"
 import { AvatarContact } from "./AvatarContact";
 import { Canvas } from "@react-three/fiber";
-import React, { useState } from "react";
+import React, { useState, Suspense } from "react";
 import { ContactShadows } from "@react-three/drei";
 import { useControls } from "leva";
 import "../i18n";
@@ -238,14 +238,15 @@ export const ContactSection = () => {
     </div>
   </div>
 </div>
+      <Suspense fallback={null}>
       <Canvas className=" w-full h-full relative z-10 hidden lg:flex " camera={{ position: [0, 2, 6], fov: 45 }}>
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} />
         <group position-y={-2}  scale={[2.5, 2.5, 2.5]}>
-          <MemoThank animation={"Thankful"}   />
-           
+           <MemoThank animation={"Thankful"}   />  
         </group>
       </Canvas>
+      </Suspense>
        
     </div>
   </div>

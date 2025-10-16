@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { ArrowDown, MessageSquare, Code, Rocket } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
@@ -28,7 +28,7 @@ export const HeroSection = () => {
       
         <div className="space-y-10 item-center  z-20">
           <img
-            src="./public/projects/photo_blue.png"
+            src="/projects/photo_blue.png"
             alt="Avatar"
             className="
                  
@@ -92,6 +92,7 @@ export const HeroSection = () => {
   
           
            
+          <Suspense fallback={null}>
           <Canvas
         className="min-h-screen hidden lg:flex opacity-0 z-30 animate-fade-in-delay-3"
       camera={{ position: [0, 2, 9], fov: 15 }}
@@ -107,9 +108,11 @@ export const HeroSection = () => {
           resolution={256}
           color="rgba(0, 0, 0, 1)"
         />
-        <MemoAvatar animation={"Greeting"} />
+        <MemoAvatar animation={"Greeting"} />  
+        
       </group>
     </Canvas>
+    </Suspense>
             <div className = "absolute  hidden lg:flex  z-20 top-1/6 left-15 flex space-y-2">
               <div className=" bg-white/80 backdrop-blur-md+7-9 opacity-0 animate-fade-in-delay-4 text-glow text-black px-3 py-2 rounded-2xl shadow-lg">
               <span className="ml-1 "> {t("messageThirdAbout")} </span>
