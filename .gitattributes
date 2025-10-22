@@ -3,3 +3,4 @@ public/models/68c8604461035c30823dc86c.glb filter=lfs diff=lfs merge=lfs -text
 public/models/68c8604461035c30823dc86cCopy.glb filter=lfs diff=lfs merge=lfs -text
 *.glb filter=lfs diff=lfs merge=lfs -text
 public/models/*.glb filter=lfs diff=lfs merge=lfs -text
+*.fbx filter=lfs diff=lfs merge=lfs -text
