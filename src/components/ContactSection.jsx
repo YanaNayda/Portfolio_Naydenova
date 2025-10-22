@@ -1,7 +1,7 @@
 
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin, Send } from "lucide-react"
 import {cn} from "@/lib/utils"
-import { AvatarContact } from "./AvatarContact";
+import { AvatarYanaContact } from "./AvatarYanaContact.jsx";
 import { Canvas } from "@react-three/fiber";
 import React, { useState, Suspense } from "react";
 import { ContactShadows } from "@react-three/drei";
@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 
 
-const MemoThank = React.memo(AvatarContact);
+const MemoThank = React.memo(AvatarYanaContact);
 
 export const ContactSection = () => {
 

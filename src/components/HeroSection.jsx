@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense } from "react";
 import { ArrowDown, MessageSquare, Code, Rocket } from "lucide-react";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows } from "@react-three/drei";
-import { AvatarHero } from "./AvatarHero.jsx";
+import { AvatarYanaWelcome } from "./AvatarYanaWelcome.jsx";
 import { useControls } from "leva";
 import { cn } from "../lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
  import { useTranslation } from "react-i18next";
 import { GradientText } from '@/components/ui/shadcn-io/gradient-text';
 
-  const MemoAvatar = React.memo(AvatarHero);
+  const MemoAvatar = React.memo(AvatarYanaWelcome);
 export const HeroSection = () => {  
   
   const [visibleMessages, setVisibleMessages] = useState([]);

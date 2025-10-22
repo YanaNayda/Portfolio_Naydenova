@@ -4,11 +4,11 @@ import {GraduationCap ,School,  BookOpen } from "lucide-react"
 import bagrut from "../documents/bagrut.pdf"
 import bachelor from "../documents/bachelor.pdf"
 import master from "../documents/master.pdf"
-import { AvatarEducation } from "./AvatarEducation.jsx"; 
+import { AvatarYanaEducation } from "./AvatarYanaEducation.jsx"; 
 import { useControls } from "leva";
 import { Canvas } from "@react-three/fiber";
 import { ContactShadows, OrbitControls } from "@react-three/drei";
-import { Room6 } from "./Room6.jsx";
+import { EducationRoom } from "./EducationRoom.jsx";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import "../i18n";
@@ -17,8 +17,8 @@ import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { CursorFollow, CursorProvider } from '@/components/ui/shadcn-io/animated-cursor';
 
-const MemoRoom6 = React.memo(Room6);
-const MemoAvatarEducation = React.memo(AvatarEducation);
+const MemoEducationRoom = React.memo(EducationRoom);
+const MemoAvatarEducation = React.memo(AvatarYanaEducation);
 
 const education = [
     {
@@ -90,10 +90,6 @@ export const EducationSection = () => {
     <div className="blob blob--blue w-64 h-64"></div>
     <div className="blob blob--teal w-64 h-64 opacity-70"></div>
   </div>
-
-  
-
-
   <div className="container mx-auto max-w-l z-20 relative">
    <h2 className="text-4xl font-bold mb-8 text-center z-20">
   {i18n.language === "he" ? (
@@ -169,7 +165,7 @@ export const EducationSection = () => {
     <directionalLight position={[5, 5, 5]} />
     <group>
       <group position={[-3.2, -2, 0]} rotation={[0, Math.PI, 0]} scale={[1, 1, 1]}>
-           <MemoRoom6 />    
+           <MemoEducationRoom/>    
       </group>
       <group position={[-2, -1.2, 0]} scale={[3, 3, 3]}>
         <MemoAvatarEducation animation="Typing" />
