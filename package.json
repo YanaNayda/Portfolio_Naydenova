@@ -17,7 +17,7 @@
     "@react-three/drei": "^9.108.4",
     "@react-three/fiber": "^8.16.8",
     "@readyplayerme/react-avatar-creator": "^0.5.0",
- 
+    "@readyplayerme/visage": "^6.16.0",
     "@supabase/supabase-js": "^2.58.0",
     "@tailwindcss/vite": "^4.1.14",
     "@types/three": "^0.180.0",
@@ -38,7 +38,7 @@
     "swiper": "^12.0.2",
     "tailwind-merge": "^3.3.1",
     "three": "^0.166.1",
-    "three-stdlib": "^2.30.4"
+    "three-stdlib": "2.30.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
