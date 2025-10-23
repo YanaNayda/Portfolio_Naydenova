@@ -90,23 +90,24 @@
      transform: translateY(80px);
   }
   8.33% {
-    opacity: 1; /* Полная видимость */
+    opacity: 1;  
   }
   33.33% {
-    opacity: 1; /* Удерживаем видимость */
+    opacity: 1;  
   }
   41.66% {
-    opacity: 0; /* Исчезаем */
+    opacity: 0; 
   }
   100% {
     opacity: 0;
-     transform: translateY(0px); /* Остаёмся скрытыми до следующего цикла */
+     transform: translateY(0px);  
   }
 }
 }
  
 @layer base {
   :root{
+     color-scheme: light;
    --background:228  19% 5%;
     --foreground:213 31% 91%;
     --card:222 47% 8%;
@@ -116,6 +117,7 @@
 
   }
   .dark{
+     color-scheme: dark;
    --background:228  19% 5%;
     --foreground:213 31% 91%;
     --card:222 47% 8%;
@@ -135,8 +137,6 @@
 .blob {
   position: absolute;
   border-radius: var(--border-radius);
-  
-    
   filter: blur(80px);
 }
 .blob--pink {

@@ -107,9 +107,9 @@ i18n
             },
             ru: { 
                 translation: {
-                    nameYanaNaydenova: "Яна Найденева",
+                    nameYanaNaydenova: "Яна Найденoва",
                     name: "Яна",
-                    surname : "Найденева",
+                    surname : "Найденoва",
                     portfolio: "Портфолио",
                     home: "Главная",
                     aboutMe: "Обо мне",
