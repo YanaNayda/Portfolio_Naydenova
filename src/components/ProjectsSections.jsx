@@ -22,7 +22,7 @@ const projects = [
         id: 1,
         name: "DMT - Proms ++ App",
         description: "dmtProjectDescription",
-        imageUrl: "public/projects/medical_project.jpg",
+        imageUrl: "/projects/medical_project.jpg",
         tags: ["Kotlin", "Android Studio","Compose Multiplatform", "GitHub"],
         githubUrl: "https://github.com/YanaNayda/DMT---Proms-"
     },
@@ -30,7 +30,7 @@ const projects = [
         id: 2,
         name: "PawPal",
         description: "pawpalDescription",
-        imageUrl: "public/projects/paw_pal_logo.png",
+        imageUrl: "/projects/paw_pal_logo.png",
         tags: ["Node.js", "Express", "MongoDB", "React Native", "FireBase", "GitHub"],
         githubUrl: "https://github.com/YanaNayda/PawPal-client"
     },
@@ -38,7 +38,7 @@ const projects = [
         id: 3,
         name: "GymBro",
         description: "gymbroDescription",
-        imageUrl: "public/projects/gymbro.png",
+        imageUrl: "/projects/gymbro.png",
         tags: ["Java", "Android Studio", "Firebase ", "GitHub"],
         githubUrl: "https://github.com/YanaNayda/GymBro"
     },
