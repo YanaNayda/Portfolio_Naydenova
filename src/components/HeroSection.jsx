@@ -73,7 +73,6 @@ export const HeroSection = () => {
           <div className="opacity-0 animate-fade-in block">
             {greeting}
             {"\u00A0"}
-          ы
           </div>
           <div className="mt-2">
             <GradientText
