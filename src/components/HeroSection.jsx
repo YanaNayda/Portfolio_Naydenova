@@ -45,12 +45,12 @@ export const HeroSection = () => {
  
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center top-20">
+    <section id="hero" className="relative min-h-screen flex items-center top-8">
       <div className="blob blob--teal absolute left-0 top-0 -translate-y-1/2 -translate-x-1/2 w-72 h-32"></div>
       <div className="blob blob--teal h-[100px] absolute left-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
       <div className="blob blob--teal h-[100px] absolute right-20 top-[200px] -translate-y-1/2 -translate-x-1/2 w-64"></div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 space-y-6 items-center relative max-w-[80%] mx-auto gap-2">
+      <div className="grid grid-cols-1 lg:grid-cols-2 space-y-3 items-center relative max-w-[80%] mx-auto gap-2">
       
         <div className="space-y-10 item-center  z-20">
           <img
@@ -68,7 +68,7 @@ export const HeroSection = () => {
   <h1 dir={dir} className="text-4xl md:text-6xl text-center tracking-tight">
     {i18n?.language === "he" ? (
       isMobile ? (
-        // he mobile: две строки (привет + אני) и потом имя
+ 
         <div className="inline-block text-center">
           <div className="opacity-0 animate-fade-in block">
             {greeting}
@@ -84,7 +84,7 @@ export const HeroSection = () => {
           </div>
         </div>
       ) : (
-        // he desktop: одна строка
+       
         <div className="inline-flex items-center gap-2">
           <span className="opacity-0 animate-fade-in inline-block">
             {greeting}{"\u00A0"} 
@@ -97,16 +97,16 @@ export const HeroSection = () => {
         </div>
       )
     ) : (
-      // non-he: используем responsive flex — на мобиле столбец (две строки), на десктопе строка
+    
       <div className="flex flex-col md:flex-row items-center md:gap-2 gap-0">
-        {/* первая строка (на мобиле будет отдельной строкой) */}
+        
         <span className="opacity-0 animate-fade-in inline-block">
           {greeting}
           {"\u00A0"}
      
         </span>
 
-        {/* имя — на мобиле будет на новой строке, на десктопе справа */}
+        
         <div className="mt-2 md:mt-0">
           <GradientText
             text={name}
@@ -185,7 +185,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+      <div className="absolute bottom-3   left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
         <span className="text-sm text-muted-foreground mb-2">{t("scroll")}</span>
         <ArrowDown className="h-5 w-5 text-primary ml-2" />
       </div>
