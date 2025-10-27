@@ -65,59 +65,59 @@ export const HeroSection = () => {
                 lg:h-74 lg:w-74  
                 xl:h-82 xl:w-82  "/>
 
-       <h1
-      dir={dir}
-      className="text-4xl md:text-6xl text-center tracking-tight"
-      
-    >
-      {i18n?.language === "he" ? (
-        isMobile ? (
-         
-          <div className="inline-block">
-            <div className="opacity-0 animate-fade-in block text-xl">
-             
-              {greeting}
-            
-              {"\u00A0"}
-             
-            </div>
-
-            <div className="mt-2"> 
-              <GradientText
-                text={name}
-                gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
-                className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
-              />
-            </div>
+  <h1 dir={dir} className="text-4xl md:text-6xl text-center tracking-tight">
+    {i18n?.language === "he" ? (
+      isMobile ? (
+        // he mobile: две строки (привет + אני) и потом имя
+        <div className="inline-block text-center">
+          <div className="opacity-0 animate-fade-in block">
+            {greeting}
+            {"\u00A0"}
+          
           </div>
-        ) : (
-    
-          <div className="inline-flex items-center gap-2">
-            <span className="opacity-0 animate-fade-in inline-block">
-              {greeting}
-              {"\u00A0"}
-             
-            </span>
- 
+          <div className="mt-2">
             <GradientText
               text={name}
               gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
               className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
             />
           </div>
-        )
+        </div>
       ) : (
-        
+        // he desktop: одна строка
         <div className="inline-flex items-center gap-2">
-          <span className="opacity-0 animate-fade-in inline-block">{t("greeting")}</span>
+          <span className="opacity-0 animate-fade-in inline-block">
+            {greeting}{"\u00A0"} 
+          </span>
           <GradientText
-            text={t("nameYanaNaydenova")}
+            text={name}
             gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
             className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
           />
         </div>
-      )}
-    </h1>
+      )
+    ) : (
+      // non-he: используем responsive flex — на мобиле столбец (две строки), на десктопе строка
+      <div className="flex flex-col md:flex-row items-center md:gap-2 gap-0">
+        {/* первая строка (на мобиле будет отдельной строкой) */}
+        <span className="opacity-0 animate-fade-in inline-block">
+          {greeting}
+          {"\u00A0"}
+     
+        </span>
+
+        {/* имя — на мобиле будет на новой строке, на десктопе справа */}
+        <div className="mt-2 md:mt-0">
+          <GradientText
+            text={name}
+            gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
+            className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
+          />
+        </div>
+      </div>
+    )}
+  </h1>
+
  
           <p className="text-lg md:text-3xl text-muted-foreground max-w-3xl text-center mx-auto opacity-0 animate-fade-in-delay-2">
             {t("textAbout")}
