@@ -9,13 +9,39 @@ import { motion, AnimatePresence } from "framer-motion";
  import "../i18n";
  import { useTranslation } from "react-i18next";
 import { GradientText } from '@/components/ui/shadcn-io/gradient-text';
+ 
 
-  const MemoAvatar = React.memo(AvatarYanaWelcome);
+const MemoAvatar = React.memo(AvatarYanaWelcome);
+
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth < breakpoint : false
+  );
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < breakpoint);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
+
 export const HeroSection = () => {  
   
   const [visibleMessages, setVisibleMessages] = useState([]);
   const {t ,i18n} = useTranslation();
+ const isMobile = useIsMobile();
+
  
+  const iAmText = t?.("iAm") ?? "אני";
+  const greeting = t?.("greeting") ?? "היי";
+  const name = t?.("nameYanaNaydenova") ?? "יאנה נאידנובה";
+
+ 
+  const dir = i18n?.language === "he" ? "rtl" : "ltr";
+
  
 
   return (
@@ -39,37 +65,60 @@ export const HeroSection = () => {
                 lg:h-74 lg:w-74  
                 xl:h-82 xl:w-82  "/>
 
-          <h1 className="text-4xl md:text-6xl text-center tracking-tight">
-  {i18n.language === "he" ? (
-    <>
-      <GradientText
-        text={t("nameYanaNaydenova")}
-        gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
-        className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
-      />
-      <span className="opacity-0 animate-fade-in inline-block">
-          &nbsp;{t("greeting")}
-      </span>
-    </>
-  ) : (
-    <>
-      <span className="opacity-0 animate-fade-in inline-block">
-        {" "}
-        {t("greeting")}
-      </span>
-       <span className="opacity-0 animate-fade-in inline-block">
-        &nbsp;
-        {" "}
-      </span>
-      <GradientText
-        text={t("nameYanaNaydenova")}
-        gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
-        className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
-      />
-    </>
-  )}
-</h1>
+       <h1
+      dir={dir}
+      className="text-4xl md:text-6xl text-center tracking-tight"
+      
+    >
+      {i18n?.language === "he" ? (
+        isMobile ? (
+         
+          <div className="inline-block">
+            <div className="opacity-0 animate-fade-in block text-xl">
+             
+              {greeting}
+            
+              {"\u00A0"}
+             
+            </div>
 
+            <div className="mt-2"> 
+              <GradientText
+                text={name}
+                gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
+                className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
+              />
+            </div>
+          </div>
+        ) : (
+    
+          <div className="inline-flex items-center gap-2">
+            <span className="opacity-0 animate-fade-in inline-block">
+              {greeting}
+              {"\u00A0"}
+             
+            </span>
+ 
+            <GradientText
+              text={name}
+              gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
+              className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
+            />
+          </div>
+        )
+      ) : (
+        
+        <div className="inline-flex items-center gap-2">
+          <span className="opacity-0 animate-fade-in inline-block">{t("greeting")}</span>
+          <GradientText
+            text={t("nameYanaNaydenova")}
+            gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"
+            className="text-primary opacity-0 animate-fade-in-delay-1 inline-block"
+          />
+        </div>
+      )}
+    </h1>
+ 
           <p className="text-lg md:text-3xl text-muted-foreground max-w-3xl text-center mx-auto opacity-0 animate-fade-in-delay-2">
             {t("textAbout")}
           </p>

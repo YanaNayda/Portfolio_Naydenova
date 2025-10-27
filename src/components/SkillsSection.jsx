@@ -106,8 +106,8 @@ export const SkillsSection = () => {
                                 key={key}
                                 className="bg-card sm:p-4 md:p-6 lg:p-8 p-4 rounded-lg shadow-lg  card-hover z-20"
                             >
-                                <h3 className="text-xl sm:text-2xl md:text-2xl  font-semibold mb-2 text-center">{skill.name}</h3>
-                                <p className="text-m text-white mb-2 text-center">{t( skill.category)}</p> 
+                                <h3 className="text-md sm:text-xl md:text-2xl  font-semibold mb-2 text-center">{skill.name}</h3>
+                                <p className="text-sm text-white mb-2 text-center">{t( skill.category)}</p> 
                                  
                                 
                             </div>
