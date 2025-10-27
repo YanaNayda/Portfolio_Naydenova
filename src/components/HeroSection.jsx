@@ -65,15 +65,15 @@ export const HeroSection = () => {
                 lg:h-74 lg:w-74  
                 xl:h-82 xl:w-82  "/>
 
-  <h1 dir={dir} className="text-4xl md:text-6xl text-center tracking-tight">
+  <h1 dir={dir} className="text-4xl md:text-6xl text-center  justify-center  tracking-tight">
     {i18n?.language === "he" ? (
       isMobile ? (
  
-        <div className="inline-block text-center">
+        <div className="inline-block text-center items-center  justify-center ">
           <div className="opacity-0 animate-fade-in block">
             {greeting}
             {"\u00A0"}
-          
+          ы
           </div>
           <div className="mt-2">
             <GradientText
@@ -85,7 +85,7 @@ export const HeroSection = () => {
         </div>
       ) : (
        
-        <div className="inline-flex items-center gap-2">
+        <div className="inline-flex items-center  text-center justify-center  gap-2">
           <span className="opacity-0 animate-fade-in inline-block">
             {greeting}{"\u00A0"} 
           </span>
@@ -98,16 +98,16 @@ export const HeroSection = () => {
       )
     ) : (
     
-      <div className="flex flex-col md:flex-row items-center md:gap-2 gap-0">
+      <div className="flex flex-col md:flex-row items-center  justify-center  text-center md:gap-2 gap-0">
         
         <span className="opacity-0 animate-fade-in inline-block">
           {greeting}
           {"\u00A0"}
-     
+      
         </span>
 
         
-        <div className="mt-2 md:mt-0">
+        <div className="mt-2 md:mt-0 text-center">
           <GradientText
             text={name}
             gradient="linear-gradient(95deg, #4b02c1ff 0%, rgba(101, 94, 211, 1) 50%, #1c1497ff 70%)"

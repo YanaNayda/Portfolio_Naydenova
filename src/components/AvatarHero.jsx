@@ -12,11 +12,8 @@ import * as THREE from "three";
 
 export function AvatarHero({ animation, ...props }) {
   const group = useRef()
-
-  // Загружаем GLB-модель
   const { nodes, materials } = useGLTF("models/68c8604461035c30823dc86c.glb");
 
-  // Загружаем FBX-анимацию Greeting
   const { animations: greetingAnimation } = useFBX("animations/Standing Greeting.fbx");
   greetingAnimation[0].name = "Greeting";
 
